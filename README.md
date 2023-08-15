@@ -1,6 +1,6 @@
-# Chapter 2 - Component Basics Start
+# Chapter 4 - Client Side Libraries Start
 
-This is the starter code branch for [Chapter 2 - Component Basics](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/project-archetype/component-basics.html)
+This is the starter code branch for [Chapter 4 - Client Side Libraries](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/project-archetype/client-side-libraries.html)
 
 ## Tutorial
 
