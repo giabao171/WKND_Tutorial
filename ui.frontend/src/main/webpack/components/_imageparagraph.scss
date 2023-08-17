@@ -1,0 +1,39 @@
+.cmp-imageparagraph {
+	position: relative;
+	
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+		/*position: absolute;*/
+	}
+}
+
+.cmp-imageparagraph__image {}
+.cmp-imageparagraph__paragraph {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+    background-color: #000000a1;
+    color: #fff;
+    
+    p {
+		padding: 0 3%;
+	}
+}
+
+.cmp-imageparagraph__title {
+	color: #fff;
+	padding: 3% 3% 0 3%;
+}
+
+.cmp-imageparagraph__content {
+	padding: 0 3%;
+}
+
+.cmp-imageparagraph__author {
+	font-size: 20px;
+    font-weight: 800;
+    padding-right: 10%;
+    float: right;
+}
