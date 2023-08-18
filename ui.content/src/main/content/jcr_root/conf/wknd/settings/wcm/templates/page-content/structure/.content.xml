@@ -3,6 +3,8 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2023-08-18T11:43:27.450+07:00"
+        cq:lastModifiedBy="admin"
         cq:template="/conf/wknd/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="wknd/components/page">
@@ -26,7 +28,27 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wknd/components/container"
                     editable="{Boolean}true"
-                    layout="responsiveGrid"/>
+                    layout="responsiveGrid">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="7"/>
+                    </cq:responsive>
+                </container>
+                <container_1096307800
+                    jcr:lastModified="{Date}2023-08-18T11:42:42.452+07:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wknd/components/container"
+                    editable="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="5"/>
+                    </cq:responsive>
+                </container_1096307800>
             </container>
             <experiencefragment-footer
                 jcr:primaryType="nt:unstructured"

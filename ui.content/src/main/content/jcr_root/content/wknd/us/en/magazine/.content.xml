@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2021-01-21T11:59:05.744-08:00"
+        cq:lastModified="{Date}2023-08-18T14:21:36.443+07:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/wknd/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
@@ -20,7 +20,69 @@
                 <container
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wknd/components/container"
-                    layout="responsiveGrid"/>
+                    layout="responsiveGrid">
+                    <image
+                        jcr:lastModified="{Date}2023-08-18T14:14:55.428+07:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wknd/components/image"
+                        fileReference="/content/dam/wknd/en/magazine/la-skateparks/article_01_hero.png"/>
+                    <title
+                        jcr:lastModified="{Date}2023-08-18T14:15:47.815+07:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Some thing"
+                        sling:resourceType="wknd/components/title"
+                        type="h3"/>
+                    <imageparagraph
+                        jcr:lastModified="{Date}2023-08-18T14:17:43.395+07:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wknd/components/imageparagraph"
+                        author="Minz"
+                        fileReference="/content/dam/wknd/en/magazine/la-skateparks/article_01_picture_01.png"
+                        paragraph="&lt;p>Contrary to popular belief skateboarding, the sport as we know it was not invented by Marty McFly as depicted in the box office hit Back to the Future. It is widely considered that the sport was invented in California by surfers who wanted something to do when the ocean waves went &amp;quot;flat&amp;quot; or in non-surfer terms when there were no waves in the early 1950s.&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                        textIsRich="true"
+                        title="More"/>
+                    <byline
+                        jcr:lastModified="{Date}2023-08-18T14:18:40.217+07:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wknd/components/byline"
+                        fileName="universal_share_asset.jpg"
+                        name="Audience"
+                        occupations="Photograhper">
+                        <file/>
+                    </byline>
+                </container>
+                <container_1096307800
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wknd/components/container">
+                    <teaser
+                        jcr:lastModified="{Date}2023-08-18T14:20:56.581+07:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Skiiing"
+                        sling:resourceType="wknd/components/teaser"
+                        actionsEnabled="false"
+                        descriptionFromPage="false"
+                        fileReference="/content/dam/wknd/en/magazine/la-skateparks/robson-hatsukami-morgan-280159.jpg"
+                        linkURL="/content/wknd/us/en/magazine/ski-touring"
+                        textIsRich="true"
+                        titleFromPage="false"/>
+                    <teaser_234772311
+                        jcr:lastModified="{Date}2023-08-18T14:21:36.437+07:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Skate"
+                        sling:resourceType="wknd/components/teaser"
+                        actionsEnabled="false"
+                        descriptionFromPage="false"
+                        fileReference="/content/dam/wknd/en/magazine/la-skateparks/article_01_picture_01.png"
+                        linkURL="/content/wknd/us/en/magazine/guide-la-skateparks"
+                        textIsRich="true"
+                        titleFromPage="false"/>
+                </container_1096307800>
             </container>
         </root>
     </jcr:content>

@@ -46,6 +46,7 @@ module.exports = {
       ...libsBaseConfig,
       name: 'clientlib-dependencies',
       categories: ['wknd.dependencies'],
+      dependencies: ['bootstrap4.6.2'],
       assets: {
         // Copy entrypoint scripts and stylesheets into the respective ClientLib
         // directories

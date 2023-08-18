@@ -3,34 +3,13 @@
 
 (function() {
     "use strict";
-
-/*   function HelloWorld() {
-	   if (console && console.log) {
-                console.log(
-                    "HelloWorld component JavaScript example",
-                    "\nText property:\n",
-                    "\nModel message:\n"
-                );
-            }
-   }*/
-   
-   
-   let number = 1;
-   
-   var div = document.querySelector(".cmp-buttonlink");
-   div.onclick = () => {
-   		number = number +1;
-   		console.log(number)
-   		var div = document.querySelector("#h1").innerHTML = number.toString();
-   }
-   
-   return {
-        number: number
-    }
-   
-   /*if (document.readyState !== "loading") {
-	  new HelloWorld();
-   }else {
-        document.addEventListener("DOMContentLoaded", HelloWorld);
-    }*/
+    
+    $( document ).ready(function() {
+		let number = 1;
+	   $(".cmp-buttonlink").on("click", function() {
+		   number = number +1;
+		   console.log(number)
+		   $("#h1").html(number.toString())
+	   })
+	})
 }());
