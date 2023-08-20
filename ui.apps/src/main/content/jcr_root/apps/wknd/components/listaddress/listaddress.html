@@ -1,0 +1,11 @@
+<div data-sly-use.listAddress = "com.adobe.aem.guides.wknd.core.models.ListAddress">
+	<h1>4</h1>
+	<ul data-sly-list.item="${listAddress.address}">
+		<li>Address: ${item}</li>
+	</ul>
+	<p>All address: <b>${listAddress.address @ join=', '} </b></p>
+	
+	<ul data-sly-list.item="${listAddress.addressDetails}">
+		<li>Detail ${item.city} - ${item.country}</li>
+	</ul>
+</div>
