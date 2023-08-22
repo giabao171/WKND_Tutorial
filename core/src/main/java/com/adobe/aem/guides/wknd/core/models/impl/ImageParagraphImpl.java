@@ -5,6 +5,7 @@ import javax.annotation.PostConstruct;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.Self;
@@ -20,6 +21,7 @@ import com.adobe.cq.wcm.core.components.models.Image;
         resourceType = {ImageParagraphImpl.RESOURCE_TYPE},
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
 )
+@Exporter(name = "jackson", extensions = "json")
 public class ImageParagraphImpl implements ImageParagraph{
 	
 	protected static final String RESOURCE_TYPE = "wknd/components/imageparagraph";

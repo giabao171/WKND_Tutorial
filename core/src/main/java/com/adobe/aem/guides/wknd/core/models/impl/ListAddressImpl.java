@@ -45,11 +45,10 @@ public class ListAddressImpl implements ListAddress{
 
 	@Override
 	public List<Map<String, String>> getAddressDetails() {
-		// TODO Auto-generated method stub
 		List<Map<String, String>> addressDtailMap = new ArrayList<>();
 		
 		try {
-			Resource addressDetail = componentResource.getChild("addressdetails");
+			Resource addressDetail = componentResource.getChild("addressdetailmap");
 			if(addressDetail != null) {
 				for(Resource detail: addressDetail.getChildren()) {
 					Map<String, String> ds = new HashMap<>();
@@ -57,6 +56,8 @@ public class ListAddressImpl implements ListAddress{
 					ds.put("city", detail.getValueMap().get("city", String.class));
 					addressDtailMap.add(ds);
 				}
+			}else {
+				
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

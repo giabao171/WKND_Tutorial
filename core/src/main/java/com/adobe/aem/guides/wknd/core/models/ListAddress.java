@@ -5,5 +5,6 @@ import java.util.Map;
 
 public interface ListAddress {
 	public List<String> getAddress();
+	
 	public List<Map<String, String>> getAddressDetails();
 }
