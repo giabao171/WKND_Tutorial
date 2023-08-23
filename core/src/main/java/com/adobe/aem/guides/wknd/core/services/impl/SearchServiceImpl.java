@@ -83,15 +83,25 @@ public class SearchServiceImpl implements SearchService{
 
 
             List<Hit> hits =result.getHits();
+            LOG.error("\n List Hist {} ",hits.toString());
+            LOG.error("\n List Hist {} ",hits.toString());
+            LOG.error("\n List Hist is empty {} ",hits.isEmpty());
+            LOG.error("\n List Hist check {} ",hits.toArray().toString());
             JsonArray resultArray=new JsonArray();
             for(Hit hit: hits){
                 Page page=hit.getResource().adaptTo(Page.class);
-                JsonObject resultObject=new JsonObject();
-                resultObject.addProperty("title",page.getTitle());
-                resultObject.addProperty("path",page.getPath());
-                resultArray.add(resultObject);
-                LOG.error("\n Page123 {} ",page.getPath());
+                LOG.error("\n in Page ",000);
+                LOG.error("\n in Page Title ",page.getTitle());
+                LOG.error("\n in Page Path",page.getPath());
+
+//                JsonObject resultObject=new JsonObject();
+//                resultObject.addProperty("title",page.getTitle());
+//                resultObject.addProperty("path",page.getPath());
+//                resultArray.add(resultObject);
+//                LOG.error("\n Page123 {} ",page.getPath());
+            	LOG.error("\n in Hit {} ",123);
             }
+            searchResult.addProperty("results1",resultArray.toString());
             searchResult.add("results",resultArray);
 
         }catch (Exception e){
