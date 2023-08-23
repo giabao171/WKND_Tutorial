@@ -10,8 +10,9 @@ import com.day.cq.search.result.SearchResult;
 import com.day.cq.wcm.api.Page;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.json.JSONArray;
-import org.json.JSONObject;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -51,9 +52,9 @@ public class SearchServiceImpl implements SearchService{
     }
 
     @Override
-    public JSONObject searchResult(String searchText,int startResult,int resultPerPage, ResourceResolver resourceResolver1){
+    public JsonObject  searchResult(String searchText,int startResult,int resultPerPage, ResourceResolver resourceResolver1){
         LOG.info("\n ----SEARCH RESULT--------");
-        JSONObject searchResult=new JSONObject();
+        JsonObject  searchResult=new JsonObject ();
         try {
 //            ResourceResolver resourceResolver = ResolverUtil.newResolver(resourceResolverFactory);
         	ResourceResolver resourceResolver = resourceResolver1;
@@ -75,23 +76,23 @@ public class SearchServiceImpl implements SearchService{
             LOG.error("\n ERROR {} ", Long.valueOf(startingResult));
             LOG.error("\n ERROR {} ", Double.valueOf(totalPages));
 
-            searchResult.put("perpageresult",perPageResults);
-            searchResult.put("totalresults",totalResults);
-            searchResult.put("startingresult",startingResult);
-            searchResult.put("pages",totalPages);
+            searchResult.addProperty("perpageresult",perPageResults);
+            searchResult.addProperty("totalresults",totalResults);
+            searchResult.addProperty("startingresult",startingResult);
+            searchResult.addProperty("pages",totalPages);
 
 
             List<Hit> hits =result.getHits();
-            JSONArray resultArray=new JSONArray();
+            JsonArray resultArray=new JsonArray();
             for(Hit hit: hits){
                 Page page=hit.getResource().adaptTo(Page.class);
-                JSONObject resultObject=new JSONObject();
-                resultObject.put("title",page.getTitle());
-                resultObject.put("path",page.getPath());
-                resultArray.put(resultObject);
-                LOG.info("\n Page {} ",page.getPath());
+                JsonObject resultObject=new JsonObject();
+                resultObject.addProperty("title",page.getTitle());
+                resultObject.addProperty("path",page.getPath());
+                resultArray.add(resultObject);
+                LOG.error("\n Page123 {} ",page.getPath());
             }
-            searchResult.put("results",resultArray);
+            searchResult.add("results",resultArray);
 
         }catch (Exception e){
             LOG.info("\n ----ERROR -----{} ",e.getMessage());

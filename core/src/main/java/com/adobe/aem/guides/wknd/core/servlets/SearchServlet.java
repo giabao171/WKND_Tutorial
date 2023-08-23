@@ -9,13 +9,13 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletPaths;
-import org.json.JSONObject;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.aem.guides.wknd.core.services.SearchService;
+import com.google.gson.JsonObject;
 
 @Component(service = Servlet.class)
 @SlingServletPaths(
@@ -29,7 +29,7 @@ public class SearchServlet extends SlingAllMethodsServlet {
 
     @Override
     protected void doGet(final SlingHttpServletRequest req, final SlingHttpServletResponse resp) throws ServletException, IOException {
-        JSONObject searchResult=null;
+        JsonObject searchResult=null;
         try {
             String searchtext = req.getRequestParameter("searchText").getString();
             int pageNumber = Integer.parseInt(req.getRequestParameter("pageNumber").getString())-1;
