@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import javax.jcr.Node;
 import javax.jcr.Session;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -52,7 +53,7 @@ public class SearchServiceImpl implements SearchService{
     }
 
     @Override
-    public JsonObject  searchResult(String searchText,int startResult,int resultPerPage, ResourceResolver resourceResolver1){
+    public JsonObject  searchResult(String searchText,int startResult,int resultPerPage, int pageNumber, ResourceResolver resourceResolver1){
         LOG.info("\n ----SEARCH RESULT--------");
         JsonObject  searchResult=new JsonObject ();
         try {
@@ -79,29 +80,21 @@ public class SearchServiceImpl implements SearchService{
             searchResult.addProperty("perpageresult",perPageResults);
             searchResult.addProperty("totalresults",totalResults);
             searchResult.addProperty("startingresult",startingResult);
-            searchResult.addProperty("pages",totalPages);
+            searchResult.addProperty("totalPage",totalPages);
+            searchResult.addProperty("curentPage", pageNumber);
 
 
             List<Hit> hits =result.getHits();
-            LOG.error("\n List Hist {} ",hits.toString());
-            LOG.error("\n List Hist {} ",hits.toString());
-            LOG.error("\n List Hist is empty {} ",hits.isEmpty());
-            LOG.error("\n List Hist check {} ",hits.toArray().toString());
             JsonArray resultArray=new JsonArray();
-            for(Hit hit: hits){
-                Page page=hit.getResource().adaptTo(Page.class);
-                LOG.error("\n in Page ",000);
-                LOG.error("\n in Page Title ",page.getTitle());
-                LOG.error("\n in Page Path",page.getPath());
-
-//                JsonObject resultObject=new JsonObject();
-//                resultObject.addProperty("title",page.getTitle());
-//                resultObject.addProperty("path",page.getPath());
-//                resultArray.add(resultObject);
-//                LOG.error("\n Page123 {} ",page.getPath());
-            	LOG.error("\n in Hit {} ",123);
+            Iterator<Node> nodesIterator = result.getNodes();
+            Node currentNode;
+            while (nodesIterator.hasNext()) {
+            	currentNode = nodesIterator.next();
+            	JsonObject resultObject=new JsonObject();
+            	resultObject.addProperty("title", currentNode.getName().toString());
+            	resultObject.addProperty("path", currentNode.getPath().toString());
+            	resultArray.add(resultObject);
             }
-            searchResult.addProperty("results1",resultArray.toString());
             searchResult.add("results",resultArray);
 
         }catch (Exception e){
