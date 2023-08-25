@@ -11,6 +11,7 @@ import java.util.Map;
 import javax.jcr.Node;
 import javax.jcr.Session;
 
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.models.factory.ModelFactory;
@@ -102,6 +103,12 @@ public class SearchPersonServiceImpl implements SearchPerson{
 			LOG.error("\n ERROR {} log query", e.toString());
 		}
 		return objectResult;
+	}
+
+	@Override
+	public JsonObject addPerson(String name, String sex, String birthday) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

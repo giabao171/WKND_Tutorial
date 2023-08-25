@@ -6,4 +6,5 @@ import com.google.gson.JsonObject;
 
 public interface SearchPerson {
 	public JsonObject searchPersonressult(String keywork, int startResult ,int resultPerPage, int pageNumber, ResourceResolver resourceResolverParam);
+	public JsonObject addPerson(String name, String sex, String birthday);
 }
