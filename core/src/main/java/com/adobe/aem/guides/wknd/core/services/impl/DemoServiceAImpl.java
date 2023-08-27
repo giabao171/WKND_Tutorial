@@ -1,6 +1,9 @@
 package com.adobe.aem.guides.wknd.core.services.impl;
 
 import com.adobe.aem.guides.wknd.core.services.DemoService;
+
+import com.adobe.cq.wcm.core.components.models.contentfragment.*;
+
 import com.adobe.aem.guides.wknd.core.utils.ResolverUtil;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;

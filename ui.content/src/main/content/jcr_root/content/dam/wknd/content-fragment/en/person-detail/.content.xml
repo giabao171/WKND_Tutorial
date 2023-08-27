@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="aaeec7b6-a58b-48ca-b3b8-9415ff964fe3">
+    <jcr:content
+        cq:name="person-detail"
+        cq:parentPath="/content/dam/wknd/content-fragment/en"
+        jcr:lastModified="{Date}2023-08-27T22:43:50.570+07:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Person detail"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2023-08-27T22:43:50.570+07:00">
+        <data
+            cq:model="/conf/wknd/settings/dam/cfm/models/person-model"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                age="{Double}22.0"
+                age_x0040_LastModified="{Date}2023-08-27T22:43:50.537+07:00"
+                birthday="{Date}2023-08-27T22:43:00.000+07:00"
+                birthday_x0040_LastModified="{Date}2023-08-27T22:43:50.544+07:00"
+                name="Nguyen Gia Bao"
+                name_x0040_LastModified="{Date}2023-08-27T22:43:50.537+07:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="8e964e74-8c5b-4b22-a710-2527542b28c5"
+                _x0040_string_x0040_model="/conf/wknd/settings/dam/cfm/models/person-model"
+                _x0040_stringArray_x0040_variations="[]"
+                calendar_x0040_birthday="{Date}2023-08-27T22:43:00.000+07:00"
+                double_x0040_age="{Double}22.0"
+                string_x0040_name="Nguyen Gia Bao"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

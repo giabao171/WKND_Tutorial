@@ -3,6 +3,9 @@ package com.adobe.aem.guides.wknd.core.models.impl;
 import com.adobe.aem.guides.wknd.core.models.OSGiConfigDemo;
 import com.adobe.aem.guides.wknd.core.models.ServiceDemo;
 import com.adobe.aem.guides.wknd.core.services.OSGiConfig;
+import com.adobe.aem.guides.wknd.core.services.OSGiConfigModule;
+import com.adobe.aem.guides.wknd.core.services.OSGiFactoryConfig;
+
 //import com.adobe.aem.guides.wknd.core.services.OSGiConfigModule;
 //import com.adobe.aem.guides.wknd.core.services.OSGiFactoryConfig;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -49,31 +52,31 @@ public class OSGiConfigDemoImpl implements OSGiConfigDemo{
     /*--------End Tutorial #31--------*/
 
     /*--------Start Tutorial #32--------*/
-//    @OSGiService
-//    OSGiConfigModule oSGiConfigModule;
-//
-//    @Override
-//    public int getServiceId() {
-//        return oSGiConfigModule.getServiceId();
-//    }
-//    @Override
-//    public String getServiceNameModule() {
-//        return oSGiConfigModule.getServiceName();
-//    }
-//    @Override
-//    public String getServiceURL() {
-//        return oSGiConfigModule.getServiceURL();
-//    }
+    @OSGiService
+    OSGiConfigModule oSGiConfigModule;
+
+    @Override
+    public int getServiceId() {
+        return oSGiConfigModule.getServiceId();
+    }
+    @Override
+    public String getServiceNameModule() {
+        return oSGiConfigModule.getServiceName();
+    }
+    @Override
+    public String getServiceURL() {
+        return oSGiConfigModule.getServiceURL();
+    }
 //    /*--------End Tutorial #32--------*/
 //
 //    /*--------Start Tutorial #33--------*/
-//    @OSGiService
-//    OSGiFactoryConfig oSGiFactoryConfig;
-//
-//    @Override
-//    public List<OSGiFactoryConfig> getAllOSGiConfigs() {
-//        return oSGiFactoryConfig.getAllConfigs();
-//    }
+    @OSGiService
+    OSGiFactoryConfig oSGiFactoryConfig;
+
+    @Override
+    public List<OSGiFactoryConfig> getAllOSGiConfigs() {
+        return oSGiFactoryConfig.getAllConfigs();
+    }
     /*--------End Tutorial #33--------*/
 
 }
