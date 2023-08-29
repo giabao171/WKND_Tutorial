@@ -66,7 +66,7 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/foundation/form/hidden"
                                                 name="./image/sling:resourceType"
-                                                value="casio/components/content/image"/>
+                                                value="wknd/components/image"/>
                                         </items>
                                     </column>
                                 </items>

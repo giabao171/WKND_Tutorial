@@ -1,1 +1,39 @@
-<div><h1>123</h1></div>
+<div data-sly-use.contentPanel="com.adobe.aem.guides.wknd.core.models.ContentPanel"
+	data-sly-use.template="core/wcm/components/commons/v1/templates.html" 
+	data-sly-test.image="${contentPanel.image}"
+	data-sly-set.imageSet="${contentPanel.image}"
+	data-sly-set.title="${contentPanel.title}" 
+	data-sly-set.description="${contentPanel.description}"
+	data-sly-set.isAutoPlayVideo="${contentPanel.autoPlay}"
+	data-sly-set.hideControlBar="${contentPanel.hideControlBar}" 
+	data-sly-set.linkTo="${contentPanel.link}"
+	data-sly-set.openInNewTab="${contentPanel.isOpenNewTab}"
+	class="cmp-content-panel">
+	<a href="${linkTo}" target="${openInNewTab ? '_blank' : '_self'}">
+		<div class="cmp-content-panel_content">
+			<div class="cmp-contetn-panel_image">
+				<sly data-sly-test.isVideo="${!image.src}">
+					<video class="cmp-image_video" data-sly-attribute.controls="${!hideControlBar}" disableRemotePlayback disablepictureinpicture 
+							oncontextmenu="return false;" controlslist="nodownload noplaybackrate" 
+							playsinline data-sly-attribute.autoplay="${isAutoPlayVideo}" 
+							data-sly-attribute.muted="${isAutoPlayVideo}" data-sly-attribute.loop="${isAutoPlayVideo}">
+						<source src="${image.fileReference}" type="${image.mimeType}">
+					</video>
+				</sly>
+				<sly data-sly-test="${isVideo == true}">				
+					<img src="${image.src}" loading="lazy" alt=""/>
+				</sly>
+				<!--<img src="${image.src}" loading="lazy" alt=""/>-->
+			</div>
+		</div>
+		<div class="content-panel_context">
+			<div class="cmp-content-panel_text">
+				<div class="cmp-content-panel_title">${title}</div>
+				<div class="cmp-content-panel_description">${description}</div>
+				<div>${openInNewTab}</div>
+				<div>${image.mimeType}</div>
+			</div>
+		</div>
+	</a>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!image}"></sly>
