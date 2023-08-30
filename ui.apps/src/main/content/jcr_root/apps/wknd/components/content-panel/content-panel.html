@@ -12,7 +12,7 @@
 	<a href="${linkTo}" target="${openInNewTab ? '_blank' : '_self'}">
 		<div class="cmp-content-panel_content">
 			<div class="cmp-contetn-panel_image">
-				<sly data-sly-test.isVideo="${!image.src}">
+				<sly data-sly-test.isVideo="${image.src == null}">
 					<video class="cmp-image_video" data-sly-attribute.controls="${!hideControlBar}" disableRemotePlayback disablepictureinpicture 
 							oncontextmenu="return false;" controlslist="nodownload noplaybackrate" 
 							playsinline data-sly-attribute.autoplay="${isAutoPlayVideo}" 
@@ -20,18 +20,15 @@
 						<source src="${image.fileReference}" type="${image.mimeType}">
 					</video>
 				</sly>
-				<sly data-sly-test="${isVideo == true}">				
-					<img src="${image.src}" loading="lazy" alt=""/>
+				<sly data-sly-test="${!isVideo}">				
+					<img class="cmp-image_image" src="${image.src}" loading="lazy" alt=""/>
 				</sly>
-				<!--<img src="${image.src}" loading="lazy" alt=""/>-->
 			</div>
-		</div>
-		<div class="content-panel_context">
-			<div class="cmp-content-panel_text">
-				<div class="cmp-content-panel_title">${title}</div>
-				<div class="cmp-content-panel_description">${description}</div>
-				<div>${openInNewTab}</div>
-				<div>${image.mimeType}</div>
+			<div class="content-panel_context">
+				<div class="cmp-content-panel_text">
+					<div class="cmp-content-panel_title">${title}</div>
+					<div class="cmp-content-panel_description">${description}</div>
+				</div>
 			</div>
 		</div>
 	</a>

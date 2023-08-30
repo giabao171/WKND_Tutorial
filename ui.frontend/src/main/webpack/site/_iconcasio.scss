@@ -1,0 +1,511 @@
+@font-face {
+  font-family: 'icon-casio';
+  src: url("../resources/fonts/icon-casio.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-casio-'], [class*=' icon-casio-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icon-casio' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 20px;
+  color: #000;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-casio-icon_arrow_eduEC:before {
+  content: '\e900';
+  color: #092981;
+}
+.icon-casio-icon_arrow_left_eduEC:before {
+  content: '\e901';
+  color: #092981;
+}
+.icon-casio-icon_cart_eduEC:before {
+  content: '\e902';
+  color: #092981;
+}
+.icon-casio-icon_heart_eduEC:before {
+  content: '\e903';
+  color: #092981;
+}
+.icon-casio-icon_link_eduEC:before {
+  content: '\e904';
+  color: #092981;
+}
+
+[class^='icon-casio-icon_login_check'], [class*=' icon-casio-icon_login_check'] {
+  font-weight: 900;
+  @media (min-width: 768px) {
+    .path1, .path2 {
+      position: absolute;
+      top: -7px;
+    }
+  }
+  @media (max-width: 767px) {
+    .path2 {
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.icon-casio-icon_login_check_eduEC .path1:before {
+  content: '\e905';
+  color: rgb(9, 41, 129);
+}
+.icon-casio-icon_login_check_eduEC .path2:before {
+  content: '\e906';
+  color: #fff;
+}
+.icon-casio-icon_login_eduEC:before {
+  content: '\e907';
+  color: #092981;
+}
+.icon-casio-icon_menu_close_eduEC:before {
+  content: '\e908';
+  color: #092981;
+}
+.icon-casio-icon_menu_sp_eduEC:before {
+  content: '\e909';
+  color: #092981;
+}
+.icon-casio-icon_minus_eduEC:before {
+  content: '\e90a';
+  color: #092981;
+}
+.icon-casio-icon_plus_eduEC:before {
+  content: '\e90b';
+  color: #092981;
+}
+.icon-casio-icon_search_eduEC:before {
+  content: '\e90c';
+  color: #092981;
+}
+.icon-casio-icon_bag_black:before {
+  content: '\e90d';
+}
+.icon-casio-icon_cursor_minus .path1:before {
+  content: '\e90e';
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_cursor_minus .path2:before {
+  content: '\e90f';
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_cursor_minus .path3:before {
+  content: '\e910';
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_cursor_minus .path4:before {
+  content: '\e911';
+  margin-left: -1em;
+  color: none;
+}
+.icon-casio-icon_cursor_minus .path5:before {
+  content: '\e912';
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_cursor_minus .path6:before {
+  content: '\e913';
+  margin-left: -1em;
+  color: none;
+}
+.icon-casio-icon_cursor_plus .path1:before {
+  content: '\e914';
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_cursor_plus .path2:before {
+  content: '\e915';
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_cursor_plus .path3:before {
+  content: '\e916';
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_cursor_plus .path4:before {
+  content: '\e917';
+  margin-left: -1em;
+  color: none;
+}
+.icon-casio-icon_cursor_plus .path5:before {
+  content: '\e918';
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_cursor_plus .path6:before {
+  content: '\e919';
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_heart_fav_01:before {
+  content: '\e91a';
+  color: #666;
+}
+.icon-casio-icon_heart_fav_03:before {
+  content: '\e91b';
+  color: #fff;
+}
+.icon-casio-icon_refine_white:before {
+  content: '\e91c';
+  color: #fff;
+}
+.icon-casio-icon_sort_white:before {
+  content: '\e91d';
+  color: #fff;
+}
+.icon-casio-icon_sp_menu_white:before {
+  content: '\e91e';
+  color: #fff;
+}
+.icon-casio-icon_addcart_01, .icon-casio-icon_addcart_02 {	
+  font-size: 30px;	
+}
+.icon-casio-icon_addcart_01 .path1:before {
+  content: '\e91f';
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_addcart_01 .path2:before {
+  content: '\e920';
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_addcart_01 .path3:before {
+  content: '\e921';
+  margin-left: -1em;
+  color: #CBCBCB;
+}
+.icon-casio-icon_addcart_01 .path4:before {
+  content: '\e922';
+  margin-left: -1em;
+  color: #CBCBCB;
+}
+.icon-casio-icon_addcart_02 .path1:before {
+  content: '\e923';
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_addcart_02 .path2:before {
+  content: '\e924';
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_addcart_02 .path3:before {
+  content: '\e925';
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_addcart_02 .path4:before {
+  content: '\e926';
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_arrow_down_white:before {
+  content: '\e927';
+  color: #fff;
+}
+.icon-casio-icon_arrow_down:before {
+  content: '\e928';
+}
+.icon-casio-icon_arrow_left_white-2:before {
+  content: '\e929';
+  color: #fff;
+}
+.icon-casio-icon_arrow_left_white:before {
+  content: '\e92a';
+  color: #fff;
+}
+.icon-casio-icon_arrow_left:before {
+  content: '\e92b';
+}
+.icon-casio-icon_arrow_right_white:before {
+  content: '\e92c';
+  color: #fff;
+}
+.icon-casio-icon_arrow_right:before {
+  content: '\e92d';
+}
+.icon-casio-icon_arrow_up:before {
+  content: '\e92e';
+}
+.icon-casio-icon_arrow_white:before {
+  content: '\e92f';
+  color: #fff;
+}
+.icon-casio-icon_arrow:before {
+  content: '\e930';
+}
+.icon-casio-icon_bag:before {
+  content: '\e931';
+  color: #fff;
+}
+.icon-casio-icon_cancel:before {
+  content: '\e932';
+  color: #a7a7b1;
+}
+.icon-casio-icon_cart_black:before {
+  content: '\e933';
+}
+.icon-casio-icon_cart_gshock:before {
+  content: '\e934';
+  color: #fff;
+}
+.icon-casio-icon_cart:before {
+  content: '\e935';
+  color: #fff;
+}
+.icon-casio-icon_checked:before {
+  content: '\e936';
+  color: #fff;
+}
+.icon-casio-icon_close .path1:before {
+  content: '\e937';
+  color: rgb(15, 14, 14);
+}
+.icon-casio-icon_close .path2:before {
+  content: '\e938';
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_external:before {
+  content: '\e939';
+}
+.icon-casio-icon_favorite_01:before {
+  content: '\e93a';
+}
+.icon-casio-icon_favorite_02:before {
+  content: '\e93b';
+}
+.icon-casio-icon_heart_black:before {
+  content: '\e93c';
+}
+.icon-casio-icon_heart_fav_02:before {
+  content: '\e93d';
+}
+.icon-casio-icon_heart:before {
+  content: '\e93e';
+  color: #fff;
+}
+.icon-casio-icon_link_black:before {
+  content: '\e93f';
+}
+.icon-casio-icon_link:before {
+  content: '\e940';
+  color: #fff;
+}
+.icon-casio-icon_login_black:before {
+  content: '\e941';
+}
+.icon-casio-icon_login_check_gshock .path1:before {
+  content: '\e942';
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_login_check_gshock .path2:before {
+  content: '\e943';
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_login_check .path1:before {
+  content: '\e944';
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_login_check .path2:before {
+  content: '\e945';
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_login:before {
+  content: '\e946';
+  color: #fff;
+}
+.icon-casio-icon_menu_close_white:before {
+  content: '\e947';
+  color: #fff;
+}
+.icon-casio-icon_menu_close:before {
+  content: '\e948';
+}
+.icon-casio-icon_menu_sp_black:before {
+  content: '\e949';
+}
+.icon-casio-icon_menu_sp:before {
+  content: '\e94a';
+  color: #fff;
+}
+.icon-casio-icon_minus_white:before {
+  content: '\e94b';
+  color: #fff;
+}
+.icon-casio-icon_minus:before {
+  content: '\e94c';
+}
+.icon-casio-icon_modal_close:before {
+  content: '\e94d';
+  color: #fff;
+}
+.icon-casio-icon_next_white:before {
+  content: '\e94e';
+}
+.icon-casio-icon_next .path1:before {
+  content: '\e94f';
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_next .path2:before {
+  content: '\e950';
+  margin-left: -1em;
+  color: none;
+}
+.icon-casio-icon_next .path3:before {
+  content: '\e951';
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_plus_white:before {
+  content: '\e952';
+  color: #fff;
+}
+.icon-casio-icon_plus:before {
+  content: '\e953';
+}
+.icon-casio-icon_radio_checked .path1:before {
+  content: '\e954';
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_radio_checked .path2:before {
+  content: '\e955';
+  margin-left: -1em;
+  color: none;
+}
+.icon-casio-icon_radio_checked .path3:before {
+  content: '\e956';
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_radio_unchecked:before {
+  content: '\e957';
+  color: #fff;
+}
+.icon-casio-icon_refine:before {
+  content: '\e958';
+}
+.icon-casio-icon_register_button .path1:before {
+  content: '\e959';
+  color: rgb(127, 127, 127);
+  opacity: 0.949;
+}
+.icon-casio-icon_register_button .path2:before {
+  content: '\e95a';
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_search_black:before {
+  content: '\e95b';
+}
+.icon-casio-icon_search:before {
+  content: '\e95c';
+  color: #fff;
+}
+.icon-casio-icon_selected_disabled:before {
+  content: '\e95d';
+  color: #fff;
+}
+.icon-casio-icon_selected .path1:before {
+  content: '\e95e';
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_selected .path2:before {
+  content: '\e95f';
+  margin-left: -1em;
+  color: none;
+}
+.icon-casio-icon_selected .path3:before {
+  content: '\e960';
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-casio-icon_share:before {
+  content: '\e961';
+}
+.icon-casio-icon_slash:before {
+  content: '\e962';
+  color: #b4b4b4;
+}
+.icon-casio-icon_sns_instagram:before {
+  content: '\e963';
+}
+.icon-casio-icon_sort:before {
+  content: '\e964';
+}
+.icon-casio-icon_sp_menu_close:before {
+  content: '\e965';
+  color: #fff;
+}
+.icon-casio-icon_sp_menu:before {
+  content: '\e966';
+}
+.icon-casio-icon_star_half_rate .path1:before {
+  content: '\e967';
+  color: rgb(228, 228, 228);
+}
+.icon-casio-icon_star_half_rate .path2:before {
+  content: '\e968';
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-casio-icon_star_no_rate:before {
+  content: '\e969';
+  color: #e4e4e4;
+}
+.icon-casio-icon_star_rate:before {
+  content: '\e96a';
+}
+.icon-casio-icon_submit_arrow:before {
+  content: '\e96b';
+}
+.icon-casio-icon_tags_close:before {
+  content: '\e96c';
+}
+.icon-casio-icon-customize .path1:before {
+  content: '\e96d';
+  color: rgb(244, 233, 87);
+}
+.icon-casio-icon-customize .path2:before {
+  content: '\e96e';
+  margin-left: -1em;
+  color: rgb(74, 145, 179);
+}
+.icon-casio-icon-customize .path3:before {
+  content: '\e96f';
+  margin-left: -1em;
+  color: rgb(92, 109, 166);
+}
+.icon-casio-icon-customize .path4:before {
+  content: '\e970';
+  margin-left: -1em;
+  color: rgb(235, 124, 88);
+}
+.icon-casio-icon-customize .path5:before {
+  content: '\e971';
+  margin-left: -1em;
+  color: rgb(101, 186, 127);
+}
+.icon-casio-icon-customize .path6:before {
+  content: '\e972';
+  margin-left: -1em;
+  color: rgb(236, 99, 137);
+}
+.icon-casio-icon-question:before {
+  content: '\e973';
+}
