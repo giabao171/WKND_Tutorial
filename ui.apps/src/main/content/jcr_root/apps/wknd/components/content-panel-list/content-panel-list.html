@@ -1,0 +1,7 @@
+<div data-sly-use.contentPanelList="com.adobe.aem.guides.wknd.core.models.ContentPanelList">
+	<h1>${properties.id}</h1>
+	<h1>${properties.panelNumber}</h1>
+	<ul data-sly-list="${contentPanelList.listContentPanel}">
+		<li>${item}</li>
+	</ul>
+</div>
