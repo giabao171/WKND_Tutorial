@@ -12,6 +12,7 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.adobe.aem.guides.wknd.core.common.utils.CommonUlti;
 import com.adobe.aem.guides.wknd.core.models.ContentPanelList;
@@ -34,14 +35,14 @@ public class ContentPanelListImpl implements ContentPanelList{
 	SlingHttpServletRequest request;
 	
 	@NotNull
-	@StyleOrValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL )
-	private int numberPanel;
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+	private int panelNumber;
 	
 	private List<String> contentPanelList;
 	
 	@PostConstruct
 	public void init() {
-		contentPanelList = CommonUlti.getContentPanelList(resource, numberPanel, request);
+		contentPanelList = CommonUlti.getContentPanelList(resource, panelNumber, request);
 	}
 	
 	@Override

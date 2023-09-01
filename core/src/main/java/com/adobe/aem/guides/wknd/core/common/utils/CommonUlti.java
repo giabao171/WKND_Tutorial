@@ -1,11 +1,9 @@
 package com.adobe.aem.guides.wknd.core.common.utils;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -20,14 +18,13 @@ import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.adobe.aem.guides.wknd.core.servlets.SearchServlet;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.WCMMode;
 import com.drew.lang.annotations.NotNull;
 
 public class CommonUlti {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SearchServlet.class);
+	private static final Logger LOG = LoggerFactory.getLogger(CommonUlti.class);
 
 	@NotNull
 	public static String getLink(@NotNull SlingHttpServletRequest request, @NotNull Page page) {
@@ -47,12 +44,12 @@ public class CommonUlti {
 	}
 
 	public static List<String> getContentPanelList(Resource resourceList, int contentPanelNumber, SlingHttpServletRequest request) {
-		List<String> listContentPanel = new ArrayList<String>();
+
+		List<String> listContentPanelReturn = new ArrayList<String>();
 		ResourceResolver resourceReslover = resourceList.getResourceResolver();
 		Node contentPanelListNode = resourceList.adaptTo(Node.class);
 
 		if (contentPanelListNode != null) {
-
 			try {
 				int i = 0;
 				String nodeName;
@@ -60,19 +57,19 @@ public class CommonUlti {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 				NodeIterator contentPanelListNodes = contentPanelListNode.getNodes();
 				
-				Map<String, Object> options = new HashMap<String, Object>();
+				Map<String, Object> options = new HashMap<>();
 				options.put("sling:resourceType", "wknd/components/content-panel");
 				options.put("jcr:primaryType", "nt:unstructured");
 
 				while (i < contentPanelNumber && contentPanelListNodes.hasNext()) {
 					Node contentpanelNodeChild = contentPanelListNodes.nextNode();
 					ValueMap childMap = resourceReslover.getResource(contentpanelNodeChild.getPath()).getValueMap();
-					if(childMap.get("sling:resourceType", String.class).equals("wknd/components/content-panel")) {
-						listContentPanel.add(contentpanelNodeChild.getName());
+					if(childMap.get("sling:resourceType", StringUtils.EMPTY).equals("wknd/components/content-panel")) {
+						listContentPanelReturn.add(contentpanelNodeChild.getName());
 						i++;
-					}else if(childMap.get("sling:resourceType", String.class).equals("wcm/msm/components/ghost")) {
+					}else if(childMap.get("sling:resourceType", StringUtils.EMPTY).equals("wcm/msm/components/ghost")) {
 						if(WCMMode.EDIT.equals(WCMMode.fromRequest(request))) {
-							listContentPanel.add(contentpanelNodeChild.getName());
+							listContentPanelReturn.add(contentpanelNodeChild.getName());
 						}
 					}
 				}
@@ -82,9 +79,10 @@ public class CommonUlti {
 						while(i < contentPanelNumber) {
 							nodeName = "content_panel_bao_"+ dateFormat.format(new Date()) + Integer.toString(i);
 							contentPanel = resourceReslover.create(resourceList, nodeName, options);
-							listContentPanel.add(nodeName);
+							listContentPanelReturn.add(contentPanel.getName());
 							i++;
 						}
+						resourceReslover.commit();
 					}
 				} catch (Exception e) {
 					LOG.error("There is error when create content-panel node{}", e.getMessage());
@@ -94,6 +92,6 @@ public class CommonUlti {
 			}
 		}
 
-		return null;
+		return listContentPanelReturn;
 	}
 }
