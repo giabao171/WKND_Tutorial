@@ -37,7 +37,7 @@
 		//Get search person
 		function getSearch(searchvalue, currentPage) {
 			$.ajax({
-				url: `http://localhost:4502/bin/searchPerson?keywork=${searchvalue}&pageNumber=${currentPage}&resultPerPage=2`,
+				url: `http://localhost:4503/bin/searchPerson?keywork=${searchvalue}&pageNumber=${currentPage}&resultPerPage=2`,
 				//url: "/content/wknd/us/en/magazine/text/jcr:content/root/container/container/person.model.json",
 				type: 'GET',
 				dataType: 'json',

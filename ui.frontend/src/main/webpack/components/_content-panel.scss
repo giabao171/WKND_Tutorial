@@ -1,4 +1,4 @@
-.cmp-content-panel {
+.cmp-content_panel {
 	overflow: hidden;
 	background-color: #f7f8fa;
 
@@ -7,7 +7,7 @@
 		color: inherit;
 		text-decoration-line: none;
 
-		.cmp-content-panel_content {
+		.cmp-content_panel_content {
 			height: 100%;
 
 			.cmp-contetn-panel_image {
@@ -38,12 +38,12 @@
 			.content-panel_context {
 				flex: 1 1 auto;
 
-				.cmp-content-panel_text {
+				.cmp-content_panel_text {
 					padding: 15px;
 					background-color: #000;
 					color: #fff;
 
-					.cmp-content-panel_title {
+					.cmp-content_panel_title {
 						font-size: 14px;
 						line-height: 24px;
 						position: relative;
@@ -59,7 +59,7 @@
 						}*/
 					}
 
-					.cmp-content-panel_description {
+					.cmp-content_panel_description {
 						margin-top: 10px;
 						font-size: 11px;
 						height: 47px;
@@ -71,16 +71,16 @@
 	}
 }
 
-.cmp-content-panel:hover .cmp-image_image {
+.cmp-content_panel:hover .cmp-image_image {
 	transform: translate(-50%, -50%) scale(1.1, 1.1) !important;
 	transition: all 0.3s linear;
 }
 
 .cmp-content-panel_text--white {
 
-	.cmp-content-panel {
+	.cmp-content_panel {
 
-		.cmp-content-panel_text {
+		.cmp-content_panel_text {
 			background-color: #000 !important;
 			color: #fff !important;
 		}
@@ -90,9 +90,9 @@
 
 .cmp-content-panel_text--black {
 
-	.cmp-content-panel {
+	.cmp-content_panel {
 
-		.cmp-content-panel_text {
+		.cmp-content_panel_text {
 			background-color: #fff !important;
 			color: #000 !important;
 		}
@@ -101,7 +101,7 @@
 
 a[target="_blank"] {
 
-	.cmp-content-panel_title::after {
+	.cmp-content_panel_title::after {
 		margin-left: 7px;
 		display: inline-block;
 		font-family: 'icon-casio' !important;

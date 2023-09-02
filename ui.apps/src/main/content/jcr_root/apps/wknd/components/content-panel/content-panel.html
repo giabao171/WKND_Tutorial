@@ -8,9 +8,9 @@
 	data-sly-set.hideControlBar="${contentPanel.hideControlBar}" 
 	data-sly-set.linkTo="${contentPanel.link}"
 	data-sly-set.openInNewTab="${contentPanel.isOpenNewTab}"
-	class="cmp-content-panel">
+	class="cmp-content_panel">
 	<a href="${linkTo}" target="${openInNewTab ? '_blank' : '_self'}">
-		<div class="cmp-content-panel_content">
+		<div class="cmp-content_panel_content">
 			<div class="cmp-contetn-panel_image">
 				<sly data-sly-test.isVideo="${image.src == null}">
 					<video class="cmp-image_video" data-sly-attribute.controls="${!hideControlBar}" disableRemotePlayback disablepictureinpicture 
@@ -25,9 +25,9 @@
 				</sly>
 			</div>
 			<div class="content-panel_context">
-				<div class="cmp-content-panel_text">
-					<div class="cmp-content-panel_title">${title}</div>
-					<div class="cmp-content-panel_description">${description}</div>
+				<div class="cmp-content_panel_text">
+					<div class="cmp-content_panel_title">${title}</div>
+					<div class="cmp-content_panel_description">${description}</div>
 				</div>
 			</div>
 		</div>

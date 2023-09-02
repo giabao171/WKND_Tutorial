@@ -1,4 +1,4 @@
-// Example of how a component should be initialized via JavaScript
+/*// Example of how a component should be initialized via JavaScript
 // This script logs the value of the component's text property model message to the console
 
 (function() {
@@ -13,3 +13,4 @@
 	   })
 	})
 }());
+*/

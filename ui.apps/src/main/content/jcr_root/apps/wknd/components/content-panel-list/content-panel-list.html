@@ -11,7 +11,7 @@
 		<div id="${component.id}" class="cmp-content-panel_list__wrapper is-edit-mode">
 			<div class="cmp-content-panel_list__frame">
 				<ul class="cmp-content-panel_list__items" data-sly-list="${panelLists}">
-					<li class="cmp-content-panel_list__item">
+					<li class="cmp-content-panel_list__item" style="list-style: none;">
 						<sly data-sly-resource="${item @ resourceType='wknd/components/content-panel', decoration=true}"></sly>
 					</li>
 				</ul>
@@ -31,7 +31,7 @@
 			<div class="cmp-content-panel_list__frame" aria-live="polite" role="region" aria-label="${'Carousel' @ i18n, hint='wknd'}">
 				<div class="cmp-content-panel_list">
 					<ul class="cmp-content-panel_list__items" data-sly-list="${panelLists}">
-						<li class="cmp-content-panel_list__item">
+						<li class="cmp-content-panel_list__item" style="list-style: none;">
 							<sly data-sly-resource="${item @ resourceType='wknd/components/content-panel', decoration=true}"></sly>
 						</li>
 					</ul>
