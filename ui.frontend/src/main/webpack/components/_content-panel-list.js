@@ -1,5 +1,6 @@
 /*import { _panelListSlide } from "./common-slide.js";*/
 import SimpleBar from 'simplebar';
+import $ from "jquery"
 
 window.addEventListener('DOMContentLoaded', () => {
   Array.prototype.forEach.call(document.getElementsByClassName('cmp-content-panel_list__wrapper'), target => {
@@ -16,5 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log("simpleBarContentEl: ", simpleBarContentEl)
     console.log("target: ", target)
     console.log("target$: ", $(target))
+    console.log("clesets: ", $(target).closest(".cmp-content-panel-list--slider"))
+    console.log("find: ",$(target).find(".cmp-content-panel_list__frame")[0])
   });
 }, false);

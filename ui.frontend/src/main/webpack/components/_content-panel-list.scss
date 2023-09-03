@@ -24,14 +24,14 @@
       height: 12px;
     }
 
-    /*スクロールバーの軌道*/
+    スクロールバーの軌道
     &::-webkit-scrollbar-track {
       // border-radius: 10px;
       // box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
       background: linear-gradient(to top, #fff 0%, #fff percentage(5 / 12), #eee percentage(5 / 12), #eee percentage(7 / 12), #fff percentage(7 / 12), #fff 100%);
     }
 
-    /*スクロールバーの動く部分*/
+    スクロールバーの動く部分
     &::-webkit-scrollbar-thumb {
     // background-color: rgba(0, 0, 0, 1);
     // border-radius: 10px;
@@ -43,6 +43,7 @@
     }
     .simplebar-track {
       pointer-events: all;
+      margin-top: 5px;
       cursor: pointer;
       &.simplebar-horizontal {
         height: 12px;
@@ -50,13 +51,20 @@
         .simplebar-scrollbar {
           top: 0;
           height: 12px;
-          &::before {
+          position: relative;
+          &:before {
             left: 0;
             right: 0;
+            top: 50%;
             opacity: 1;
             transition: auto;
             border-radius: 0;
-            background: linear-gradient(to top, #fff 0%, #fff percentage(5 / 12), #999 percentage(5 / 12), #999 percentage(7 / 12), #fff percentage(7 / 12), #fff 100%);
+            //background: linear-gradient(to top, #fff 0%, #fff percentage(5 / 12), #999 percentage(5 / 12), #999 percentage(7 / 12), #fff percentage(7 / 12), #fff 100%);
+          	content: "";
+          	position: absolute;
+          	width: 100%;
+          	height: 2pt;
+          	background: #999;
           }
         }
         &:hover, &:active {
@@ -65,10 +73,16 @@
               height: 12px;
               left: 0;
               right: 0;
+              top: 50%;
               opacity: 1;
               transition: auto;
               border-radius: 0;
               background: linear-gradient(to top, #fff 0%, #fff percentage(3 / 12), #000 percentage(5 / 12), #000 percentage(7 / 12), #fff percentage(7 / 12), #fff 100%);
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2pt;
+            background: #000;
             }
           }
         }
@@ -249,6 +263,16 @@
     }
   }
 }
+
+/*.cmp-content-panel-list--slider {
+	
+	.cmp-content-panel_list__items {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    }
+}*/
 
 .cmp-content-panel-list--list {
   @include slider-gshock();
@@ -473,3 +497,37 @@
     }
   }
 }
+.simplebar-placeholder {
+	height: 0 !important;
+	width: 0 !important;
+}
+
+/*.cmp-content-panel_list__frame .simplebar-track.simplebar-horizontal .simplebar-scrollbar:before {
+	border-radius: 0 !important;
+    opacity: 1 !important;
+    transition: auto !important;
+    background: red !important;
+}*/
+
+.cmp-content-panel_list__frame {
+	&::-webkit-scrollbar {
+      height: 12px;
+      display: none !important;
+    }
+}
+
+.simplebar-content-wrapper::-webkit-scrollbar {
+	display: none !important;
+	opacity: 0;
+}
+
+/*.simplebar-scrollbar:before {
+    background: -webkit-gradient(linear,left bottom,left top,from(#fff),color-stop(41.6666666667%,#fff),color-stop(41.6666666667%,#999),color-stop(58.3333333333%,#999),color-stop(58.3333333333%,#fff),to(#fff));
+    background: linear-gradient(0deg,#fff 0,#fff 41.6666666667%,#999 0,#999 58.3333333333%,#fff 0,#fff);
+    border-radius: 0;
+    left: 0;
+    opacity: 1;
+    right: 0;
+    -webkit-transition: auto;
+    transition: auto;
+}*/
