@@ -1,4 +1,4 @@
-/*import { _panelListSlide } from "./common-slide.js";*/
+import { _panelListSlide } from "./_common-slide.js";
 import SimpleBar from 'simplebar';
 import $ from "jquery"
 
@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
       })
       simpleBarContentEl = simpleBar.getScrollElement();
     }
-    /*new _panelListSlide(target, componentType, simpleBarContentEl);*/
+    new _panelListSlide(target, componentType, simpleBarContentEl);
     console.log("simpleBarContentEl: ", simpleBarContentEl)
     console.log("target: ", target)
     console.log("target$: ", $(target))

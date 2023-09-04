@@ -277,11 +277,14 @@
 .cmp-content-panel-list--list {
   @include slider-gshock();
   .cmp-content-panel_list {
+	  &__items {
+		  flex-wrap: wrap;
+	  }
     @media (max-width: 767px) {
       &__item {
         margin-right: 0 !important;
         margin-bottom: 20px;
-        width: 100%;
+        width: 100%;       
         .cmp-content_panel {
           margin: 0 auto !important;
           width: calc(100vw - 32px) !important;
