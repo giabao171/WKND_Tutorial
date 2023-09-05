@@ -105,7 +105,10 @@ _panelListSlide.prototype = {
 			console.log("frame right", item.getBoundingClientRect()[right])
             console.log("item right", Math.ceil(item.getBoundingClientRect()[right]))
           if(Math.ceil(this.frame.getBoundingClientRect()[right] < Math.floor(item.getBoundingClientRect()[right]))) {
-            if(!tgt) tgt = item;
+            if(!tgt) {
+				tgt = item;
+				console.log("!tgt :", !tgt)
+			}
             /*console.log("frame right", item.getBoundingClientRect()[right])
             console.log("item right", Math.ceil(item.getBoundingClientRect()[right]))*/
             console.log("<")
