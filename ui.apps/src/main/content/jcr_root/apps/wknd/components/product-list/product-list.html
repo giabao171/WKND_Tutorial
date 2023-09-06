@@ -1,0 +1,30 @@
+<div data-sly-use.productList="com.casio.core.models.ProductList"
+		class="cmp-product_list__wrapper"
+		data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+		data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+		data-sly-test.cfPathsList="${productList.cfPathsList}">
+	<sly data-sly-test="${wcmmode.edit}">
+		<h2 data-sly-test.cfPaths="${productList.cfPaths}">${cfPaths.length} product(s) selected</h2>
+		<ul data-sly-list="${cfPaths}">
+			<li>${item}</li>
+		</ul>
+	</sly>
+	<div class="cmp-product_list__btn" role="region" aria-label="${'Carousel controls' @ i18n, hint='casio'}">
+		<button class="cmp-product_list__btn-prev" aria-label="${'Previous' @ i18n, hint='casio'}" style="display: none;">
+			<img src="/etc.clientlibs/casio/clientlibs/clientlib-site/resources/images/common/icon/icon_next.svg" alt="${'Previous' @ i18n, hint='casio'}"/>
+		</button>
+		<button class="cmp-product_list__btn-next" aria-label="${'Next' @ i18n, hint='casio'}" style="display: none;">
+			<img src="/etc.clientlibs/casio/clientlibs/clientlib-site/resources/images/common/icon/icon_next.svg" alt="${'Next' @ i18n, hint='casio'}"/>
+		</button>
+	</div>
+	<div class="cmp-product_list__frame" aria-live="polite" role="region" aria-label="${'Carousel' @ i18n, hint='casio'}">
+		<div class="cmp-product_list cmp-product_list-observered" data-component-name="Product List">
+			<ul class="cmp-product_list__items" data-sly-list="${cfPathsList}">
+				<li class="cmp-product_list__item">
+					<sly data-sly-resource="${itemList.index @ resourceType='wknd/components/product-panel', selectors=item}"></sly>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!cfPathsList, classAppend='cmp-product_list'}"></sly>

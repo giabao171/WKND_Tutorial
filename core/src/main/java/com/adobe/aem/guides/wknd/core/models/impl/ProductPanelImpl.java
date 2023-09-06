@@ -1,0 +1,58 @@
+package com.adobe.aem.guides.wknd.core.models.impl;
+
+import javax.annotation.PostConstruct;
+
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import org.apache.sling.models.annotations.Exporter;
+import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
+import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.adobe.aem.guides.wknd.core.items.ProductPanelItem;
+import com.adobe.aem.guides.wknd.core.models.ProductPanel;
+import com.adobe.cq.wcm.core.components.models.Page;
+
+@Model(adaptables = {SlingHttpServletRequest.class},
+		adapters = {ProductPanel.class},
+		resourceType = {ProductPanelImpl.RESOURCE},
+		defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Exporter(name = "jackson", extensions = "json")
+public class ProductPanelImpl implements ProductPanel{
+	
+	protected static final String RESOURCE = "wknd/components/product-panel";
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ProductPanelImpl.class);
+	
+	@Self
+	SlingHttpServletRequest request;
+	
+	@ScriptVariable
+	Page currentpage;
+	
+	@SlingObject
+	private ResourceResolver resourceResolver;
+	
+	private ProductPanelItem productPanelItem;
+	
+	@PostConstruct
+	protected void initModel() {
+		
+		String productCfpath = request.getRequestPathInfo().getSelectors()[0];
+		if(productCfpath == null)
+			LOG.error("\n productCfpath null");
+		else 
+			LOG.error("\n productCfpath {}", productCfpath);
+	}
+
+	@Override
+	public ProductPanelItem getProductPanelInfo() {
+		
+		return productPanelItem;
+	}
+
+}
