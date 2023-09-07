@@ -3,6 +3,7 @@ package com.adobe.aem.guides.wknd.core.models.impl;
 import javax.annotation.PostConstruct;
 
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
@@ -15,7 +16,8 @@ import org.slf4j.LoggerFactory;
 
 import com.adobe.aem.guides.wknd.core.items.ProductPanelItem;
 import com.adobe.aem.guides.wknd.core.models.ProductPanel;
-import com.adobe.cq.wcm.core.components.models.Page;
+import com.day.cq.wcm.api.Page;
+
 
 @Model(adaptables = {SlingHttpServletRequest.class},
 		adapters = {ProductPanel.class},
@@ -32,21 +34,21 @@ public class ProductPanelImpl implements ProductPanel{
 	SlingHttpServletRequest request;
 	
 	@ScriptVariable
-	Page currentpage;
+	private Page currentPage ;
 	
 	@SlingObject
 	private ResourceResolver resourceResolver;
 	
-	private ProductPanelItem productPanelItem;
+	ProductPanelItem productPanelItem;
 	
 	@PostConstruct
 	protected void initModel() {
 		
-		String productCfpath = request.getRequestPathInfo().getSelectors()[0];
-		if(productCfpath == null)
-			LOG.error("\n productCfpath null");
-		else 
-			LOG.error("\n productCfpath {}", productCfpath);
+		String productCfPath = request.getRequestPathInfo().getSelectors()[0];
+		Resource cfResource = resourceResolver.getResource(productCfPath +"/jcr:content/data/master");
+		productPanelItem = new ProductPanelItem(request, resourceResolver, cfResource, currentPage, productCfPath);
+		 
+		LOG.error("/n product panel init: " + productCfPath);
 	}
 
 	@Override

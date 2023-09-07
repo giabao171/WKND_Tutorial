@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -18,6 +20,8 @@ import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.adobe.aem.guides.wknd.core.items.PriceInfoItem;
+import com.day.cq.i18n.I18n;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.WCMMode;
 import com.drew.lang.annotations.NotNull;
@@ -93,5 +97,42 @@ public class CommonUlti {
 		}
 
 		return listContentPanelReturn;
+	}
+	
+	public static String getDispalayName(ValueMap valueMap) {
+		
+		String dispalyproductName = StringUtils.EMPTY;
+		if(valueMap != null) {
+			dispalyproductName = valueMap.get("productName", "");
+			if(StringUtils.isBlank(dispalyproductName)) {
+				dispalyproductName = "Default Product";
+			}
+		}
+		return dispalyproductName;
+	}
+	
+	public static PriceInfoItem getPriceInfo(SlingHttpServletRequest request, Page currentPage, String listPrice) {
+
+		String price = StringUtils.EMPTY;
+		String priceLabel = StringUtils.EMPTY;
+		try {
+			Locale locale = currentPage.getLanguage();
+			ResourceBundle bundle = request.getResourceBundle(locale);
+			I18n i18n = new I18n(bundle);
+
+			// Get price info base on i18n
+			if (StringUtils.isNotEmpty(listPrice)) {
+				Double priceNum = Double.valueOf(listPrice);
+				price = i18n.get("Coming soon", "wknd");
+				if (priceNum > 0) {
+					price = i18n.get("${0}", "wknd", ProductInfoUltil.formatNumberBasedOnLocale(locale, priceNum));
+					priceLabel = i18n.get("MSRP", "wknd");
+				}
+			}
+		} catch (NumberFormatException e) {
+			price = StringUtils.EMPTY;
+			priceLabel = StringUtils.EMPTY;
+		}
+		return new PriceInfoItem(price, priceLabel);
 	}
 }

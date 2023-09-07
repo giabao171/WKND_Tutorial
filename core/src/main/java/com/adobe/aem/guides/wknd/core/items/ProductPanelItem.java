@@ -1,5 +1,15 @@
 package com.adobe.aem.guides.wknd.core.items;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
+
+import com.adobe.aem.guides.wknd.core.common.utils.CommonUlti;
+import com.day.cq.tagging.TagManager;
+import com.day.cq.wcm.api.Page;
+
 public class ProductPanelItem {
 	
 	private String brandName;
@@ -11,6 +21,25 @@ public class ProductPanelItem {
 	private String priceLabel;
 	
 	private String onlineOnlyImagePath;
+	
+	public ProductPanelItem(SlingHttpServletRequest request, ResourceResolver resourceResolver, Resource cfResource,
+			Page currentPage, String productCfpath) {
+		
+		if (cfResource != null) {
+			
+			this.price = StringUtils.EMPTY;
+			this.brandName = StringUtils.EMPTY;
+			
+			TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+			ValueMap cfValueMap = cfResource.getValueMap();
+			this.productname = CommonUlti.getDispalayName(cfValueMap);
+			
+			PriceInfoItem priceInfo = CommonUlti.getPriceInfo(request, currentPage, cfValueMap.get("listPrice", StringUtils.EMPTY));
+			this.price = priceInfo.getPrice();
+			this.priceLabel = priceInfo.getPriceLabel();
+			this.onlineOnlyImagePath = "";
+		}
+	}
 	
 	
 

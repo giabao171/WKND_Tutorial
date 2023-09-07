@@ -2,7 +2,7 @@ package com.adobe.aem.guides.wknd.core.models;
 
 import com.adobe.cq.wcm.core.components.models.Component;
 
-public interface ButtonLink {
+public interface ButtonLink extends Component{
 	
 	public String getTitle();
 	

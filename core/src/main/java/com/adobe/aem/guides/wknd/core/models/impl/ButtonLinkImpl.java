@@ -3,13 +3,17 @@
  */
 package com.adobe.aem.guides.wknd.core.models.impl;
 
+import javax.annotation.PostConstruct;
+
+import org.apache.commons.logging.Log;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.adobe.aem.guides.wknd.core.models.ButtonLink;
-
 
 /**
  * 
@@ -23,6 +27,8 @@ import com.adobe.aem.guides.wknd.core.models.ButtonLink;
 public class ButtonLinkImpl implements ButtonLink{
 	
 	protected static final String RESOURCE_TYPE = "wknd/components/buttonlink";
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ButtonLinkImpl.class);
 	
 	@ValueMapValue
 	private String title;
@@ -49,6 +55,11 @@ public class ButtonLinkImpl implements ButtonLink{
 	public String getLinkOuter() {
 		// TODO Auto-generated method stub
 		return linkOuter;
+	}
+	
+	@PostConstruct
+	public void initModel() {
+		LOG.error("/n Button link init");
 	}
 
 }
