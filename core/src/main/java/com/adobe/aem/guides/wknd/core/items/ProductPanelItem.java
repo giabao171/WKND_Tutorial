@@ -1,5 +1,6 @@
 package com.adobe.aem.guides.wknd.core.items;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -7,6 +8,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
 import com.adobe.aem.guides.wknd.core.common.utils.CommonUlti;
+import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
 
@@ -14,7 +16,7 @@ public class ProductPanelItem {
 	
 	private String brandName;
 	
-	private String productname;
+	private String productName;
 	
 	private String price;
 	
@@ -29,15 +31,26 @@ public class ProductPanelItem {
 			
 			this.price = StringUtils.EMPTY;
 			this.brandName = StringUtils.EMPTY;
+			this.onlineOnlyImagePath = StringUtils.EMPTY;
 			
 			TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
 			ValueMap cfValueMap = cfResource.getValueMap();
-			this.productname = CommonUlti.getDispalayName(cfValueMap);
+			this.productName = CommonUlti.getDispalayName(cfValueMap);
 			
 			PriceInfoItem priceInfo = CommonUlti.getPriceInfo(request, currentPage, cfValueMap.get("listPrice", StringUtils.EMPTY));
 			this.price = priceInfo.getPrice();
 			this.priceLabel = priceInfo.getPriceLabel();
-			this.onlineOnlyImagePath = "";
+			String[] brands = cfValueMap.get("brand", String[].class);
+			if(!ArrayUtils.isEmpty(brands)) {
+				Tag tag = tagManager.resolve(brands[0]);
+				if(tag != null) {
+					this.brandName = CommonUlti.getTagtitle(tag, currentPage);
+				}
+			}
+			String[] images = cfValueMap.get("productAssets", String[].class);
+			if(!ArrayUtils.isEmpty(images)) {
+				this.onlineOnlyImagePath = images[0].toString();
+			}
 		}
 	}
 	
@@ -51,12 +64,12 @@ public class ProductPanelItem {
 		this.brandName = brandName;
 	}
 
-	public String getProductname() {
-		return productname;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setProductname(String productname) {
-		this.productname = productname;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	public String getPrice() {

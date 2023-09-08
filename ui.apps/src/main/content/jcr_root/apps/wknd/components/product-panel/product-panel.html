@@ -1,3 +1,12 @@
-<div data-sly-use.productPanelInfo="com.adobe.aem.guides.wknd.core.models.ProductPanel">
-	
+<div data-sly-use.productPanel="com.adobe.aem.guides.wknd.core.models.ProductPanel"
+	data-sly-set.productPanelInfo="${productPanel.productPanelInfo}">
+	<img src="${productPanelInfo.onlineOnlyImagePath}"/>
+	<span>${productPanelInfo.productName}</span>
+	<span>${productPanelInfo.brandName}</span>
+	<span>${productPanelInfo.price}</span>
+	<span>${productPanelInfo.priceLabel}</span>
+	<span
+		data-price="${productPanelInfo.price @ context='html'}"
+		data-price-label="${productPanelInfo.priceLabel @ context='html'}"></span>
+
 </div>

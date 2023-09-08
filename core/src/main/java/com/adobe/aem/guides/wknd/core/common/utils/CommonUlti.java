@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 
 import com.adobe.aem.guides.wknd.core.items.PriceInfoItem;
 import com.day.cq.i18n.I18n;
+import com.day.cq.tagging.Tag;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.WCMMode;
 import com.drew.lang.annotations.NotNull;
@@ -134,5 +135,27 @@ public class CommonUlti {
 			priceLabel = StringUtils.EMPTY;
 		}
 		return new PriceInfoItem(price, priceLabel);
+	}
+	
+	public static String getTagtitle(Tag tag, Page page) {
+		
+		if(page != null) {
+			return tag.getTitle();
+		}
+		Locale tagLocale = new Locale(getLanguageCode(page, false));
+		String tagTitle = tag.getLocalizedTitle(tagLocale);
+		if(tagTitle ==null) {
+			tagTitle = tag.getTitle(page.getLanguage());
+		}
+		return tagTitle;
+	}
+	
+	public static String getLanguageCode(Page currentPage, boolean ignoreContent) {
+		
+		String langageCode = currentPage.getLanguage(ignoreContent).toString().toLowerCase().replace("_", "-");
+		if (ignoreContent && "in".equals(langageCode)) {
+			langageCode = "id";
+		}
+		return langageCode;
 	}
 }
