@@ -1,12 +1,35 @@
 <div data-sly-use.productPanel="com.adobe.aem.guides.wknd.core.models.ProductPanel"
-	data-sly-set.productPanelInfo="${productPanel.productPanelInfo}">
-	<img src="${productPanelInfo.onlineOnlyImagePath}"/>
-	<span>${productPanelInfo.productName}</span>
-	<span>${productPanelInfo.brandName}</span>
-	<span>${productPanelInfo.price}</span>
-	<span>${productPanelInfo.priceLabel}</span>
-	<span
-		data-price="${productPanelInfo.price @ context='html'}"
-		data-price-label="${productPanelInfo.priceLabel @ context='html'}"></span>
-
+	data-sly-set.productPanelInfo="${productPanel.productPanelInfo}"
+	data-sly-set.onlineOnlyImagePath="${productPanelInfo.onlineOnlyImagePath}"
+	data-sly-set.productName="${productPanelInfo.productName}" data-sly-set.brandName="${productPanelInfo.brandName}"
+	data-sly-set.price="${productPanelInfo.price}" data-sly-set.priceLabel="${productPanelInfo.priceLabel}"
+	class="cmp-product_panel">
+	<div class="cmp-product_panel__inner">
+		<a href="#">
+			<div class="cmp-product_panel__thumb">
+				<div class="cmp-product_panel__img">
+					<img src="${onlineOnlyImagePath}" alt="${productName}" />
+				</div>
+			</div>
+			<div class="cmp-product-panel__info">
+				<div class="cmp-product-panel__info-main">
+					<div class="cmp-product_panel__title" data-sly-test="${brandName}">${brandName}</div>
+					<div class="cmp-product_panel__code" data-sly-test="${brandName}">${productName}</div>
+					<div class="cmp-product_panel__price">
+						<div class="cmp-product_panel__price-label">${priceLabel}</div>
+						<span class="cmp-product_panel__price-txt">
+							${price}
+						</span>
+					</div>
+				</div>
+			</div>
+		</a>
+		<div class="cmp-product_panel__info-sub">
+			<div class="cmp-product_panel__icon-fav">
+				<button class="cmp-product_panel__icon-fav-btn">
+					<span class="icon-casio-icon_heart_fav_01"></span>
+				</button>
+			</div>
+		</div>
+	</div>
 </div>

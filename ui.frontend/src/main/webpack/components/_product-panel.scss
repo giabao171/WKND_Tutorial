@@ -1,0 +1,117 @@
+.cmp-product_panel {
+	width: 284px;
+	height: auto;
+	min-height: 395px;
+	border: 1px solid transparent;
+	list-style-type: none;
+	box-sizing: border-box;
+
+	.cmp-product_panel__inner {
+		width: 100%;
+		height: 100%;
+		border: 1px solid transparent;
+
+		&:hover {
+			border: 1px solid #000;
+		}
+
+		a {
+			display: block;
+			text-decoration: none;
+			color: inherit;
+			position: relative;
+		}
+
+		.cmp-product_panel__thumb {
+			border: 1px solid transparent;
+
+			.cmp-product_panel__img {
+				height: 282px;
+				background-color: #f7f8fa;
+				position: relative;
+
+				img {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					max-width: percentage(220 / 309);
+					max-height: percentage(220 / 309);
+				}
+			}
+		}
+
+		.cmp-product-panel__info {
+			padding: 10px 6px 0 6px;
+			line-height: 2;
+
+			.cmp-product-panel__info-main {
+
+				.cmp-product_panel__title {
+					font-size: 16px;
+					font-weight: 500;
+					line-height: 25px;
+					overflow: hidden;
+				}
+
+				.cmp-product_panel__code {
+					font-size: 18px;
+					font-weight: 600;
+					margin-top: 4px;
+					overflow: hidden;
+					height: 2.7pc;
+				}
+
+				.cmp-product_panel__price {
+					line-height: 1.2;
+
+					.cmp-product_panel__price-label {
+						font-size: 8px;
+						min-height: 10px;
+						font-weight: 200;
+					}
+
+					.cmp-product_panel__price-txt {
+						font-size: 14px;
+						font-weight: 400;
+					}
+				}
+			}
+		}
+
+		.cmp-product_panel__info-sub {
+
+			.cmp-product_panel__icon-fav {
+				position: absolute;
+				top: 10px;
+				right: 9px;
+				cursor: pointer;
+				z-index: 3;
+
+				&::before {
+					content: '\e93d';
+					display: flex;
+					align-items: center;
+					font-family: icon-casio !important;
+					font-size: 20px;
+					height: 20px;
+					position: absolute;
+
+				}
+
+				.cmp-product_panel__icon-fav-btn {
+					border: none;
+					background-color: transparent;
+					padding: 0;
+					cursor: pointer;
+
+					&:hover .icon-casio-icon_heart_fav_01:before {
+						color: #000;
+					}
+				}
+			}
+		}
+	}
+
+
+}
