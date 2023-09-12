@@ -1,19 +1,35 @@
 
 <div data-sly-use.productList="com.adobe.aem.guides.wknd.core.models.ProductList"
 	data-sly-use.template="core/wcm/components/commons/v1/templates.html"
-	data-sly-test.cfPathsList="${productList.cfPathsList}">
+	data-sly-test.cfPathsList="${productList.cfPathsList}"
+	class="cmp-product_list__wrapper">
 	<sly data-sly-test="${wcmmode.edit}">
 		<h2 data-sly-test.cfPaths="${productList.cfPaths}">${cfPaths.length} products are selected</h2>
 		<ul data-sly-list="${cfPaths}">
 			<li>${item}</li>
 		</ul>
 	</sly>
+	<div class="cmp-product_list__btn">
+		<button class="cmp-product_list__btn-prev cmp-product_list__btn--with-img cmp-product_list__btn-prev-with-spacing" 
+				aria-label="${'Previous' @ i18n, hint='wknd'}" style="display: none;">
+			<img src="/etc.clientlibs/wknd/clientlibs/clientlib-site/resources/images/common/icon/icon_next.svg" alt="${'Previous' @ i18n, hint='casio'}"/>
+		</button>
+		<button class="cmp-product_list__btn-next cmp-product_list__btn--with-img cmp-product_list__btn-next-with-spacing" 
+				aria-label="${'Next' @ i18n, hint='wknd'}" style="display: none;">
+			<img src="/etc.clientlibs/wknd/clientlibs/clientlib-site/resources/images/common/icon/icon_next.svg" alt="${'Next' @ i18n, hint='casio'}"/>
+		</button>
+	</div>
+	<div class="cmp-product_list__frame">
+		<div class="cmp-product_list">
+			<ul class="cmp-product_list__items" data-sly-list="${cfPathsList}" style="list-style: none;">
+				<li class="cmp-product_list__item">
+					<sly data-sly-resource="${itemList.index @ resourceType='wknd/components/product-panel', selectors=item}"></sly>
+				</li>
+			</ul>
+		</div>
+	</div>
 
-	<ul data-sly-list="${cfPathsList}" style="list-style: none;">
-		<li>
-			<sly data-sly-resource="${itemList.index @ resourceType='wknd/components/product-panel', selectors=item}"></sly>
-		</li>
-	</ul>
+	
 
 </div>
 <sly data-sly-call="${template.placeholder @ isEmpty=!cfPathsList, classAppend='cmp-product_list'}"></sly>
