@@ -1,6 +1,15 @@
 import jQuery from "jquery"
+import $ from "jquery"
 
 $(document).ready(function() {
+	
+	//let priceText = $(".cmp-product_panel__price-txt").data("product-price")
+	
+	const renderPrice = () => {
+		$(".cmp-product_panel__price-txt").each(function() {
+			$(this).html($(this).data("product-price"))
+		})
+	}
 
 	$(".cmp-product_panel__icon-fav-btn").on("click", function(e) {
 		e.stopPropagation();
@@ -14,6 +23,9 @@ $(document).ready(function() {
 			$parent.removeClass("show-before");
 		$parent.find(".cmp-product_panel__icon-fav-btn").css("z-index", "3")
 	});
+	
+	renderPrice();
+	
 })
 
 

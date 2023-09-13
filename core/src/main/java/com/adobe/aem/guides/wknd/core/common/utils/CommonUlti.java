@@ -124,10 +124,10 @@ public class CommonUlti {
 			// Get price info base on i18n
 			if (StringUtils.isNotEmpty(listPrice)) {
 				Double priceNum = Double.valueOf(listPrice);
-				price = i18n.get("Coming soon", "wknd");
+				price = i18n.get("Coming soon", "casio");
 				if (priceNum > 0) {
-					price = i18n.get("${0}", "wknd", ProductInfoUltil.formatNumberBasedOnLocale(locale, priceNum));
-					priceLabel = i18n.get("MSRP", "wknd");
+					price = i18n.get("${0}", "casio",ProductInfoUltil.formatNumberBasedOnLocale(locale, priceNum));
+					priceLabel = i18n.get("MSRP", "casio");
 				}
 			}
 		} catch (NumberFormatException e) {

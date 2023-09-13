@@ -10,6 +10,10 @@
 			margin-bottom: 20px;
 			padding-top: 30px;
 			cursor: pointer;
+
+			@media (max-width: 767px) {
+				cursor: default;
+			}
 		}
 
 		&__items {
@@ -59,15 +63,29 @@
 	}
 }
 
+.simplebar-content {
+	@media (max-width: 767px) {
+		padding: 0 !important;
+	}
+}
+
 .simplebar-track {
 	background: linear-gradient(0deg, rgb(255, 255, 255) 0px, rgb(255, 255, 255) 41.6667%, rgb(238, 238, 238) 0px, rgb(238, 238, 238) 58.3333%, rgb(255, 255, 255) 0px, rgb(255, 255, 255));
 	height: 9pt;
 	margin-top: 5px;
-	
+
+	@media (max-width: 767px) {
+		cursor: default;
+	}
+
 	.simplebar-scrollbar {
 		height: 12px;
 		position: relative;
-		
+
+		@media (max-width: 767px) {
+			cursor: default;
+		}
+
 		&::before {
 			content: "";
 			width: 100%;
@@ -76,17 +94,29 @@
 			top: 50%;
 			left: 0;
 			background: #999;
+
+			@media (max-width: 767px) {
+				cursor: default;
+			}
 		}
 	}
-	
-	&:hover, &:active {
-		
+
+	&:hover,
+	&:active {
+
 		.simplebar-scrollbar::before {
 			background: #000;
 			height: 2.3pt;
+
+			@media (max-width: 767px) {
+				background: #999;
+			}
 		}
 	}
 }
 
-
-
+@media (max-width: 767px) {
+	.cmp-product_list__item {
+		margin-right: 2vw;
+	}
+}
