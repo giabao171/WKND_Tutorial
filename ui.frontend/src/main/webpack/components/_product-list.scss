@@ -46,7 +46,7 @@
 			background-color: transparent;
 			left: 0;
 			position: absolute;
-			cursor: pointer;
+			margin-left: 3px;
 		}
 
 		&__btn-next {
@@ -58,7 +58,7 @@
 			background-color: transparent;
 			right: 0;
 			position: absolute;
-			cursor: pointer;
+			margin-right: 3px;
 		}
 	}
 }
@@ -67,6 +67,16 @@
 	@media (max-width: 767px) {
 		padding: 0 !important;
 	}
+}
+
+.simplebar-content-wrapper::-webkit-scrollbar {
+	display: none !important;
+	opacity: 0;
+}
+
+.simplebar-placeholder {
+	height: 0 !important;
+	width: 0 !important;
 }
 
 .simplebar-track {
@@ -107,10 +117,6 @@
 		.simplebar-scrollbar::before {
 			background: #000;
 			height: 2.3pt;
-
-			@media (max-width: 767px) {
-				background: #999;
-			}
 		}
 	}
 }

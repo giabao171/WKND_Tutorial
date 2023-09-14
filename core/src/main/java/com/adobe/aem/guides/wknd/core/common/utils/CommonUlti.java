@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -26,6 +27,7 @@ import com.day.cq.tagging.Tag;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.WCMMode;
 import com.drew.lang.annotations.NotNull;
+import com.google.gson.Gson;
 
 public class CommonUlti {
 
@@ -139,7 +141,7 @@ public class CommonUlti {
 	
 	public static String getTagtitle(Tag tag, Page page) {
 		
-		if(page != null) {
+		if(page == null) {
 			return tag.getTitle();
 		}
 		Locale tagLocale = new Locale(getLanguageCode(page, false));
@@ -157,5 +159,37 @@ public class CommonUlti {
 			langageCode = "id";
 		}
 		return langageCode;
+	}
+	
+	public static void prepareProductAssetInfo(ValueMap valueMap, Map<String, String> assetInfo, SlingHttpServletRequest request, 
+			boolean useTitleProperty, String transformUrl) {
+		
+		String path = StringUtils.EMPTY;
+		String alt = StringUtils.EMPTY;
+		final String[] productAssets = valueMap.get("productAssets", String[].class);
+		if(productAssets != null && productAssets.length > 0) {
+			final Map<String, String> productImgInfo = CommonUlti.getProductImgInfo(productAssets[0]);
+			if(productImgInfo != null) {
+				path = productImgInfo.get("path");
+				if(!path.isEmpty()) {
+					path += transformUrl + FilenameUtils.getExtension(path);
+				}
+				alt = productImgInfo.get("alt");
+			}
+		}
+		assetInfo.put(useTitleProperty ? "title" : "alt", alt);
+		assetInfo.put("path", path);		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static Map<String, String> getProductImgInfo(String productAssets) {
+		
+		Map<String, String> productInfo = null;
+		try {
+			productInfo = (new Gson()).fromJson(productAssets, Map.class);
+		} catch (Exception e) {
+			LOG.error("There is error in getProductImgInfo Json {}", e.getMessage());
+		}
+		return productInfo;
 	}
 }

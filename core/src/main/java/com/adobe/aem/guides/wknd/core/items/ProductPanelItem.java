@@ -1,5 +1,9 @@
 package com.adobe.aem.guides.wknd.core.items;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -24,6 +28,9 @@ public class ProductPanelItem {
 	
 	private String onlineOnlyImagePath;
 	
+	private Map<String, String> productImgInfo;
+	
+	@SuppressWarnings("unchecked")
 	public ProductPanelItem(SlingHttpServletRequest request, ResourceResolver resourceResolver, Resource cfResource,
 			Page currentPage, String productCfpath) {
 		
@@ -51,6 +58,9 @@ public class ProductPanelItem {
 			if(!ArrayUtils.isEmpty(images)) {
 				this.onlineOnlyImagePath = images[0].toString();
 			}
+//			productImgInfo = new LinkedHashMap();
+//			CommonUlti.prepareProductAssetInfo(cfValueMap, productImgInfo, request, false,".transform/product-panel/image.");
+//			this.productImgInfo.put("productName", cfValueMap.get("productName", String.class));
 		}
 	}
 	
@@ -94,6 +104,14 @@ public class ProductPanelItem {
 
 	public void setOnlineOnlyImagePath(String onlineOnlyImagePath) {
 		this.onlineOnlyImagePath = onlineOnlyImagePath;
+	}
+
+	public Map<String, String> getProductImgInfo() {
+		return productImgInfo;
+	}
+
+	public void setProductImgInfo(Map<String, String> productImgInfo) {
+		this.productImgInfo = productImgInfo;
 	}
 	
 	
