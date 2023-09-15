@@ -171,9 +171,10 @@ public class CommonUlti {
 			final Map<String, String> productImgInfo = CommonUlti.getProductImgInfo(productAssets[0]);
 			if(productImgInfo != null) {
 				path = productImgInfo.get("path");
-				if(!path.isEmpty()) {
-					path += transformUrl + FilenameUtils.getExtension(path);
-				}
+				/*
+				 * if(!path.isEmpty()) { path += transformUrl +
+				 * FilenameUtils.getExtension(path); }
+				 */
 				alt = productImgInfo.get("alt");
 			}
 		}

@@ -84,12 +84,10 @@ public class ContentPanelImpl implements ContentPanel{
 	@Override
 	public Image getImage() {
 		
-		Image kk;
 		Resource imageChildRes = resource.getChild("image");
 		if(imageChildRes != null && image == null) {
 			image  = modelFactory.getModelFromWrappedRequest(request, imageChildRes, Image.class);
 		}
-		kk = image;
 		return image;
 	}
 

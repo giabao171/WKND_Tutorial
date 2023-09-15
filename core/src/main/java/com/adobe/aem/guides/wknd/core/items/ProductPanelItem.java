@@ -58,9 +58,9 @@ public class ProductPanelItem {
 			if(!ArrayUtils.isEmpty(images)) {
 				this.onlineOnlyImagePath = images[0].toString();
 			}
-//			productImgInfo = new LinkedHashMap();
-//			CommonUlti.prepareProductAssetInfo(cfValueMap, productImgInfo, request, false,".transform/product-panel/image.");
-//			this.productImgInfo.put("productName", cfValueMap.get("productName", String.class));
+			productImgInfo = new LinkedHashMap();
+			CommonUlti.prepareProductAssetInfo(cfValueMap, productImgInfo, request, false,".transform/product-panel/image.");
+			this.productImgInfo.put("productName", cfValueMap.get("productName", String.class));
 		}
 	}
 	
