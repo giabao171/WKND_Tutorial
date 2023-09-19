@@ -40,6 +40,7 @@ _panelListSlide.prototype = {
     this.bind();
   },
   active: function() {
+    console.log(this.frame.clientWidth + " >= " + this.items.scrollLeft)
     return this.frame.clientWidth >= this.items.scrollLeft;
   },
   bind: function() {
@@ -69,9 +70,12 @@ _panelListSlide.prototype = {
       if(!tgt || tgt === ev.currentTarget) break;
       if(tgt === this.prev) {
         this.slide(-1);
+        console.log("prev: " + tgt + " : " + this.prev)
         break;
       } else if(tgt === this.next) {
         this.slide(1);
+        console.log("next")
+        console.log("next: " + tgt + " : " + this.next)
         break;
       }
       tgt = tgt.parentNode;
@@ -145,9 +149,11 @@ _panelListSlide.prototype = {
     } else if((!this.rtl ? Math.ceil(this.frame.scrollLeft) : 0) <= (!!this.rtl ? Math.ceil(this.frame.scrollLeft) : 0)) {
       this.prev.style.display = 'none';
       this.next.style.display = 'block';
+      console.log("prev: none ",Math.ceil(this.frame.scrollLeft), " ", Math.ceil(this.frame.scrollLeft))
     } else if(Math.ceil(this.frame.scrollLeft) * (this.rtl ? -1 : 1) + this.frame.clientWidth >= this.items.scrollWidth) {
       this.prev.style.display = 'block';
       this.next.style.display = 'none';
+      console.log("next: none ",this.frame.scrollLeft, " ", this.frame.clientWidth, " ", this.items.scrollWidth)
     } else {
       this.prev.style.display = 'block';
       this.next.style.display = 'block';

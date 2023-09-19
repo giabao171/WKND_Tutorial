@@ -1,4 +1,3 @@
-
 <div data-sly-use.productList="com.adobe.aem.guides.wknd.core.models.ProductList"
 	data-sly-use.template="core/wcm/components/commons/v1/templates.html"
 	data-sly-test.cfPathsList="${productList.cfPathsList}"
@@ -28,8 +27,5 @@
 			</ul>
 		</div>
 	</div>
-
-	
-
 </div>
 <sly data-sly-call="${template.placeholder @ isEmpty=!cfPathsList, classAppend='cmp-product_list'}"></sly>
