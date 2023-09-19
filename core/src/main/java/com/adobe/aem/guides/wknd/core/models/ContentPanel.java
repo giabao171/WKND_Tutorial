@@ -24,8 +24,6 @@ public interface ContentPanel extends Component{
 	
 	boolean isOpenNewTab();
 	
-	String getStyleSystemClasses(Map<String, String> styleSystemsMap);
-	
 	boolean isAutoPlay();
 	
 	boolean hideControlBar();

@@ -122,20 +122,6 @@ public class ContentPanelImpl implements ContentPanel{
 	}
 
 	@Override
-	public String getStyleSystemClasses(Map<String, String> styleSystemsMap) {
-		
-		StringBuilder styleSystemClasses = new StringBuilder();
-		String[] styleIds = resource.getValueMap().get("cq:styleIds", String[].class);
-		if (styleIds != null) {
-			for (int i = 0; i < styleIds.length; i++) {
-				styleSystemClasses.append(StringUtils.SPACE);
-				styleSystemClasses.append(styleSystemsMap.get(styleIds[i]));
-			}
-		}
-		return styleSystemClasses.toString();
-	}
-
-	@Override
 	public boolean isAutoPlay() {		
 		return !doNotAutoPlay;
 	}
