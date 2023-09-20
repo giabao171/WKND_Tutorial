@@ -30,6 +30,8 @@ public class ProductPanelItem {
 	
 	private Map<String, String> productImgInfo;
 	
+	private String productPagePath;
+	
 	@SuppressWarnings("unchecked")
 	public ProductPanelItem(SlingHttpServletRequest request, ResourceResolver resourceResolver, Resource cfResource,
 			Page currentPage, String productCfpath) {
@@ -61,6 +63,8 @@ public class ProductPanelItem {
 			productImgInfo = new LinkedHashMap();
 			CommonUlti.prepareProductAssetInfo(cfValueMap, productImgInfo, request, false,".transform/product-panel/image.");
 			this.productImgInfo.put("productName", cfValueMap.get("productName", String.class));
+			
+			this.productPagePath  = CommonUlti.getproductPagepath(currentPage, cfValueMap, tagManager);
 		}
 	}
 	
@@ -113,6 +117,12 @@ public class ProductPanelItem {
 	public void setProductImgInfo(Map<String, String> productImgInfo) {
 		this.productImgInfo = productImgInfo;
 	}
-	
-	
+
+	public String getProductPagePath() {
+		return productPagePath;
+	}
+
+	public void setProductPagePath(String productPagePath) {
+		this.productPagePath = productPagePath;
+	}	
 }

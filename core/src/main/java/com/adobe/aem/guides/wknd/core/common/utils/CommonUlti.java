@@ -13,6 +13,7 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -24,6 +25,7 @@ import org.slf4j.LoggerFactory;
 import com.adobe.aem.guides.wknd.core.items.PriceInfoItem;
 import com.day.cq.i18n.I18n;
 import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.WCMMode;
 import com.drew.lang.annotations.NotNull;
@@ -192,5 +194,56 @@ public class CommonUlti {
 			LOG.error("There is error in getProductImgInfo Json {}", e.getMessage());
 		}
 		return productInfo;
+	}
+	
+	public static String getproductPagepath(Page currentpage, ValueMap cfValuemap, TagManager tagManager) {
+		
+		String productPagePath = null;
+		String languagePagepath = null;
+		String currentPagepath = currentpage.getPath();
+		String language = "/"+ getLanguageCode(currentpage, false);
+		
+		// Set languagePagePath to currentPagePath when currentPagePath end with language. Ex: "/content/casio/locales/jp/ja"
+		if(currentPagepath.endsWith(language) && !currentPagepath.equals("/content/wknd")) {
+			languagePagepath = currentPagepath;
+		}
+		else {
+			// Index of language in the case country and language codes are same. ("/th/th/", "/id/id/")
+			int languageIndex = currentPagepath.indexOf(language + language + "/");
+			if(languageIndex != -1) {
+				// Cut current page path from begin to country position into languagePagePath
+				// Ex: /content/casio/locales/th/th/watch/g-shock 
+				// ==> /content/casio/locales/th/th
+				languagePagepath = currentPagepath.substring(0, languageIndex + (language.length() * 2));
+			}
+			else {
+				// Index of language string ("/ja/", "/en/") in the current page path
+				// To prevent the language is contained in node name of page we need add slash before checking
+				languageIndex = currentPagepath.indexOf(language+"/");
+				if(languageIndex != -1) {
+					// Cut current page path from begin to language position into languagePagePath
+					// Ex: /content/casio/locales/jp/ja/watch/g-shock 
+					// ==> /content/casio/locales/jp/ja
+					languagePagepath = currentPagepath.substring(0, languageIndex + language.length());
+				}
+			}
+ 		}
+		
+		if(languagePagepath != null) {
+			String[] brands = cfValuemap.get("brand", String[].class);
+			if(ArrayUtils.isNotEmpty(brands)) {
+				Tag tag= tagManager.resolve(brands[0]);
+				if(tag != null) {
+					Resource tagResource = tag.adaptTo(Resource.class);
+					
+					String productPagepathBrand = tagResource.getValueMap().get("productPagePath", StringUtils.EMPTY);
+					if(productPagepathBrand != null) {
+						String productName = cfValuemap.get("productName", StringUtils.EMPTY);
+						productPagePath = languagePagepath + productPagepathBrand + "/product." + productName + ".html";
+					}
+				}
+			}
+		}
+		return productPagePath;
 	}
 }

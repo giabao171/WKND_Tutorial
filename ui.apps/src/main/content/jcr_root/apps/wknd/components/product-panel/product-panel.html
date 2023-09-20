@@ -3,10 +3,12 @@
 	data-sly-set.onlineOnlyImagePath="${productPanelInfo.onlineOnlyImagePath}"
 	data-sly-set.productImgInfo="${productPanelInfo.productImgInfo}"
 	data-sly-set.productName="${productPanelInfo.productName}" data-sly-set.brandName="${productPanelInfo.brandName}"
-	data-sly-set.price="${productPanelInfo.price}" data-sly-set.priceLabel="${productPanelInfo.priceLabel}"
+	data-sly-set.price="${productPanelInfo.price}" 
+	data-sly-set.priceLabel="${productPanelInfo.priceLabel}"
+	data-sly-set.produtPagePath="${productPanelInfo.productPagePath}"
 	class="cmp-product_panel">
 	<div class="cmp-product_panel__inner">
-		<a href="#">
+		<a x-cq-linkchecker="skip" href="${produtPagePath}">
 			<div class="cmp-product_panel__thumb">
 				<div class="cmp-product_panel__img">
 					<img src="${productImgInfo.path}" alt="${productImgInfo.alt}" />
