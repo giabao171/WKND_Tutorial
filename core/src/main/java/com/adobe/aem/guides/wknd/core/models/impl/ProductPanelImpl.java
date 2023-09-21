@@ -46,8 +46,7 @@ public class ProductPanelImpl implements ProductPanel{
 		
 		String productCfPath = request.getRequestPathInfo().getSelectors()[0];
 		Resource cfResource = resourceResolver.getResource(productCfPath +"/jcr:content/data/master");
-		productPanelItem = new ProductPanelItem(request, resourceResolver, cfResource, currentPage, productCfPath);
-		 
+		productPanelItem = new ProductPanelItem(request, resourceResolver, cfResource, currentPage, productCfPath);		 
 		LOG.error("/n product panel init: " + productCfPath);
 	}
 
