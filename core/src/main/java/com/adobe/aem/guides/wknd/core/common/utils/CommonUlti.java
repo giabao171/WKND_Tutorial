@@ -19,6 +19,7 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.caconfig.ConfigurationBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,6 +35,10 @@ import com.google.gson.Gson;
 public class CommonUlti {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CommonUlti.class);
+	
+	public static <T> T getCaConfiguration(ResourceResolver resolver, Page currentPage, Class<T> paramClass) {
+		return resolver.getResource(currentPage.getPath()).adaptTo(ConfigurationBuilder.class).as(paramClass);
+	}
 
 	@NotNull
 	public static String getLink(@NotNull SlingHttpServletRequest request, @NotNull Page page) {
