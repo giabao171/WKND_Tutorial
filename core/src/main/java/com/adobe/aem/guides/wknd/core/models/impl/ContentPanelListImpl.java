@@ -6,12 +6,14 @@ import javax.annotation.PostConstruct;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.adobe.aem.guides.wknd.core.common.utils.CommonUlti;
@@ -30,6 +32,10 @@ public class ContentPanelListImpl implements ContentPanelList{
 	
 	@ScriptVariable
 	Resource resource;
+	
+	/*
+	 * @SlingObject ResourceResolver resourceReslover;
+	 */
 	
 	@Self
 	SlingHttpServletRequest request;

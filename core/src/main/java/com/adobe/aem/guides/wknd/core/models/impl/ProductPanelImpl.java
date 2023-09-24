@@ -16,7 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.aem.guides.wknd.core.common.utils.CommonUlti;
-import com.adobe.aem.guides.wknd.core.config.TextConfig;
+import com.adobe.aem.guides.wknd.core.caconfig.TextConfig;
 import com.adobe.aem.guides.wknd.core.items.ProductPanelItem;
 import com.adobe.aem.guides.wknd.core.models.ProductPanel;
 import com.day.cq.wcm.api.Page;

@@ -74,7 +74,8 @@ public class CommonUlti {
 				Map<String, Object> options = new HashMap<>();
 				options.put("sling:resourceType", "wknd/components/content-panel");
 				options.put("jcr:primaryType", "nt:unstructured");
-
+				
+				// if content panel list has content panel 
 				while (i < contentPanelNumber && contentPanelListNodes.hasNext()) {
 					Node contentpanelNodeChild = contentPanelListNodes.nextNode();
 					ValueMap childMap = resourceReslover.getResource(contentpanelNodeChild.getPath()).getValueMap();
@@ -88,6 +89,7 @@ public class CommonUlti {
 					}
 				}
 				
+				//create new content panel in contnent panel list
 				try {
 					if(WCMMode.EDIT.equals(WCMMode.fromRequest(request))) {
 						while(i < contentPanelNumber) {
