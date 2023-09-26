@@ -12,7 +12,6 @@ import java.util.ResourceBundle;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -23,6 +22,7 @@ import org.apache.sling.caconfig.ConfigurationBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.adobe.aem.guides.wknd.core.caconfig.TextConfig;
 import com.adobe.aem.guides.wknd.core.items.PriceInfoItem;
 import com.day.cq.i18n.I18n;
 import com.day.cq.tagging.Tag;
@@ -37,11 +37,17 @@ public class CommonUlti {
 	private static final Logger LOG = LoggerFactory.getLogger(CommonUlti.class);
 	
 	public static <T> T getCaConfiguration(ResourceResolver resolver, Page currentPage, Class<T> paramClass) {
+		
 		return resolver.getResource(currentPage.getPath()).adaptTo(ConfigurationBuilder.class).as(paramClass);
+	}
+	
+	public static String getTextCaConfig(ResourceResolver resolver, Page currentPage) {
+		
+		return resolver.getResource(currentPage.getPath()).adaptTo(ConfigurationBuilder.class).as(TextConfig.class).caConfigTexting();
 	}
 
 	@NotNull
-	public static String getLink(@NotNull SlingHttpServletRequest request, @NotNull Page page) {
+	public static String getLink(@NotNull SlingHttpServletRequest request, @NotNull Page page, ResourceResolver resourceReslover, Resource resource) {
 
 		String redirectTargetpath = page.getProperties().get("cq:redirectTarget", String.class);
 		String url = redirectTargetpath;
@@ -210,7 +216,7 @@ public class CommonUlti {
 		String currentPagepath = currentpage.getPath();
 		String language = "/"+ getLanguageCode(currentpage, false);
 		
-		// Set languagePagePath to currentPagePath when currentPagePath end with language. Ex: "/content/casio/locales/jp/ja"
+		// Set languagePagePath to currentPagePath when currentPagePath end with language. Ex: "/content/wknd/jp/ja"
 		if(currentPagepath.endsWith(language) && !currentPagepath.equals("/content/wknd")) {
 			languagePagepath = currentPagepath;
 		}
@@ -219,8 +225,8 @@ public class CommonUlti {
 			int languageIndex = currentPagepath.indexOf(language + language + "/");
 			if(languageIndex != -1) {
 				// Cut current page path from begin to country position into languagePagePath
-				// Ex: /content/casio/locales/th/th/watch/g-shock 
-				// ==> /content/casio/locales/th/th
+				// Ex: /content/wknd/jp/ja/product
+				// ==> /content/wknd/jp/ja
 				languagePagepath = currentPagepath.substring(0, languageIndex + (language.length() * 2));
 			}
 			else {
@@ -229,8 +235,8 @@ public class CommonUlti {
 				languageIndex = currentPagepath.indexOf(language+"/");
 				if(languageIndex != -1) {
 					// Cut current page path from begin to language position into languagePagePath
-					// Ex: /content/casio/locales/jp/ja/watch/g-shock 
-					// ==> /content/casio/locales/jp/ja
+					// Ex: /content/wknd/jp/ja/product 
+					// ==> /content/wknd/jp/ja
 					languagePagepath = currentPagepath.substring(0, languageIndex + language.length());
 				}
 			}

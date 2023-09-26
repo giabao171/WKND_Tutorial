@@ -1,4 +1,4 @@
-import { _panelListSlide } from "./_common-slide.js";
+import { _panelListSlide } from "./_common-slide";
 import SimpleBar from 'simplebar';
 import $ from "jquery"
 
@@ -14,10 +14,5 @@ window.addEventListener('DOMContentLoaded', () => {
       simpleBarContentEl = simpleBar.getScrollElement();
     }
     new _panelListSlide(target, componentType, simpleBarContentEl);
-    console.log("simpleBarContentEl: ", simpleBarContentEl)
-    console.log("target: ", target)
-    console.log("target$: ", $(target))
-    console.log("clesets: ", $(target).closest(".cmp-content-panel-list--slider"))
-    console.log("find: ",$(target).find(".cmp-content-panel_list__frame")[0])
   });
 }, false);

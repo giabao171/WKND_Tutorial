@@ -8,7 +8,6 @@ window.addEventListener("DOMContentLoaded", function() {
 		let componentTye = "cmp-product_list";
 		let simpleBarContentEl = "";
 		if($(item).children(".cmp-product_list__frame").length > 0) {
-			console.log($(item).find(".cmp-product_list__frame"))
 			let slider = new SimpleBar($(item).find(".cmp-product_list__frame")[0], {autoHide: false});
 			simpleBarContentEl = slider.getScrollElement();
 		

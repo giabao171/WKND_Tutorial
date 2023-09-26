@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
@@ -74,13 +75,15 @@ public class ContentPanelImpl implements ContentPanel{
 	@ScriptVariable
 	private Resource resource;
 	
+	@ScriptVariable
+	private ResourceResolver resourceReslover;
+	
 	@Self
 	private SlingHttpServletRequest request;
 	
 	@OSGiService
 	private ModelFactory modelFactory;
 	
-
 	@Override
 	public Image getImage() {
 		
@@ -108,7 +111,7 @@ public class ContentPanelImpl implements ContentPanel{
 		
 		if(linkTo == null) {
 			Page page = pageManager.getPage(link);
-			linkTo = CommonUlti.getLink(request, page);
+			linkTo = CommonUlti.getLink(request, page, resourceReslover, resource);
 		}
 		else {
 			linkTo = link;

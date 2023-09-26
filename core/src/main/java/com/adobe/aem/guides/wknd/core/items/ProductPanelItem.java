@@ -1,6 +1,5 @@
 package com.adobe.aem.guides.wknd.core.items;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -18,21 +17,14 @@ import com.day.cq.wcm.api.Page;
 
 public class ProductPanelItem {
 	
-	private String brandName;
-	
-	private String productName;
-	
-	private String price;
-	
-	private String priceLabel;
-	
-	private String onlineOnlyImagePath;
-	
-	private Map<String, String> productImgInfo;
-	
+	private String brandName;	
+	private String productName;	
+	private String price;	
+	private String priceLabel;	
+	private String onlineOnlyImagePath;	
+	private Map<String, String> productImgInfo;	
 	private String productPagePath;
 	
-	@SuppressWarnings("unchecked")
 	public ProductPanelItem(SlingHttpServletRequest request, ResourceResolver resourceResolver, Resource cfResource,
 			Page currentPage, String productCfpath) {
 		
@@ -60,11 +52,11 @@ public class ProductPanelItem {
 			if(!ArrayUtils.isEmpty(images)) {
 				this.onlineOnlyImagePath = images[0].toString();
 			}
-			productImgInfo = new LinkedHashMap();
+			productImgInfo = new LinkedHashMap<>();
 			CommonUlti.prepareProductAssetInfo(cfValueMap, productImgInfo, request, false,".transform/product-panel/image.");
 			this.productImgInfo.put("productName", cfValueMap.get("productName", String.class));
-			
 			this.productPagePath  = CommonUlti.getproductPagepath(currentPage, cfValueMap, tagManager);
+			
 		}
 	}
 	

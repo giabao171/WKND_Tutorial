@@ -3,7 +3,6 @@ package com.adobe.aem.guides.wknd.core.models.impl;
 import javax.annotation.PostConstruct;
 
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.request.RequestPathInfo;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -15,12 +14,9 @@ import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.adobe.aem.guides.wknd.core.common.utils.CommonUlti;
-import com.adobe.aem.guides.wknd.core.caconfig.TextConfig;
 import com.adobe.aem.guides.wknd.core.items.ProductPanelItem;
 import com.adobe.aem.guides.wknd.core.models.ProductPanel;
 import com.day.cq.wcm.api.Page;
-
 
 @Model(adaptables = {SlingHttpServletRequest.class},
 		adapters = {ProductPanel.class},
@@ -44,22 +40,10 @@ public class ProductPanelImpl implements ProductPanel{
 	
 	ProductPanelItem productPanelItem;
 	
-	TextConfig textConfig;
-	//com.adobe.aem.guides.wknd.core.config.TextConfig textConfig2;
-	
 	@PostConstruct
 	protected void initModel() {
 		
-		String productCfPath = request.getRequestPathInfo().getSelectors()[0];
-		RequestPathInfo productCfPath1 = request.getRequestPathInfo();
-		/*
-		 * textConfig = CommonUlti.getCaConfiguration(resourceResolver, currentPage,
-		 * TextConfig.class); String text = textConfig.caConfigTexting();
-		 */
-		
-		textConfig = CommonUlti.getCaConfiguration(resourceResolver, currentPage, TextConfig.class);
-		String text2 = textConfig.caConfigTexting();
-		
+		String productCfPath = request.getRequestPathInfo().getSelectors()[0];		
 		Resource cfResource = resourceResolver.getResource(productCfPath +"/jcr:content/data/master");
 		productPanelItem = new ProductPanelItem(request, resourceResolver, cfResource, currentPage, productCfPath);	
 		LOG.error("/n product panel init: " + productCfPath);
@@ -70,5 +54,4 @@ public class ProductPanelImpl implements ProductPanel{
 		
 		return productPanelItem;
 	}
-
 }

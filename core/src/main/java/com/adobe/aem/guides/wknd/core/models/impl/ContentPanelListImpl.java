@@ -33,10 +33,6 @@ public class ContentPanelListImpl implements ContentPanelList{
 	@ScriptVariable
 	Resource resource;
 	
-	/*
-	 * @SlingObject ResourceResolver resourceReslover;
-	 */
-	
 	@Self
 	SlingHttpServletRequest request;
 	

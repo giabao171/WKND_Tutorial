@@ -7,8 +7,7 @@ package com.adobe.aem.guides.wknd.core.items;
 
 public class PriceInfoItem {
 	
-	private String price;
-	
+	private String price;	
 	private String priceLabel;
 
 	public PriceInfoItem(String price, String priceLabel) {
