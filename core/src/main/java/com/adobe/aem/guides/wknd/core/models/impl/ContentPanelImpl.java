@@ -133,5 +133,4 @@ public class ContentPanelImpl implements ContentPanel{
 	public boolean hideControlBar() {		
 		return hideControlBar;
 	}
-
 }

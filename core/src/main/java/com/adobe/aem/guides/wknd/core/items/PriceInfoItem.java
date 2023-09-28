@@ -1,10 +1,5 @@
 package com.adobe.aem.guides.wknd.core.items;
 
-/**
- * 
- * 
- */
-
 public class PriceInfoItem {
 	
 	private String price;	
@@ -31,6 +26,4 @@ public class PriceInfoItem {
 	public void setPriceLabel(String priceLabel) {
 		this.priceLabel = priceLabel;
 	}
-	
-	
 }

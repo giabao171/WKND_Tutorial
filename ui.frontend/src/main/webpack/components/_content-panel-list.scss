@@ -5,12 +5,10 @@
 			position: relative;
 		}
 	}
-
 	&__wrapper-with-spacing {
 		margin-left: -2px;
 		margin-top: -2px;
 	}
-
 	&__frame {
 		width: 100%;
 		overflow-x: auto;
@@ -18,60 +16,47 @@
 		padding-bottom: 20px;
 		cursor: pointer;
 		overflow-y: hidden;
-
 		&::-webkit-scrollbar {
 			height: 12px;
 			display: none !important;
 		}
-
 		@media (max-width: 767px) {
 			cursor: default;
 		}
-
 		&::-webkit-scrollbar {
 			height: 12px;
 		}
-
 		&::-webkit-scrollbar-track {
 			background: linear-gradient(to top, #fff 0%, #fff percentage(5 / 12), #eee percentage(5 / 12), #eee percentage(7 / 12), #fff percentage(7 / 12), #fff 100%);
 		}
-
 		&::-webkit-scrollbar-thumb {
 			background: linear-gradient(to top, #fff 0%, #fff percentage(5 / 12), #999 percentage(5 / 12), #999 percentage(7 / 12), #fff percentage(7 / 12), #fff 100%);
-
 			&:hover {
 				background: linear-gradient(to top, #fff 0%, #fff percentage(3 / 12), #000 percentage(5 / 12), #000 percentage(7 / 12), #fff percentage(7 / 12), #fff 100%);
 			}
 		}
-
 		.simplebar-content-wrapper::-webkit-scrollbar {
 			display: none !important;
 			opacity: 0;
 		}
-
 		.simplebar-placeholder {
 			height: 0 !important;
 			width: 0 !important;
 		}
-
 		.simplebar-track {
 			pointer-events: all;
 			margin-top: 5px;
 			cursor: pointer;
-
 			@media (max-width: 767px) {
 				margin-top: 25px;
 			}
-
 			&.simplebar-horizontal {
 				height: 12px;
 				background: linear-gradient(to top, #fff 0%, #fff percentage(5 / 12), #eee percentage(5 / 12), #eee percentage(7 / 12), #fff percentage(7 / 12), #fff 100%);
-
 				.simplebar-scrollbar {
 					top: 0;
 					height: 12px;
 					position: relative;
-
 					&:before {
 						content: "";
 						position: absolute;
@@ -86,7 +71,6 @@
 						background: #999;
 					}
 				}
-
 				&:hover,
 				&:active {
 					.simplebar-scrollbar {
@@ -106,24 +90,20 @@
 					}
 				}
 			}
-
 			&.simplebar-vertical {
 				display: none;
 			}
 		}
 	}
-
 	&__btn {
 		width: 100%;
 		position: absolute;
 		z-index: 300;
 		top: 174px;
-
 		@media (max-width: 767px) {
 			display: none !important;
 		}
 	}
-
 	&__btn-prev {
 		position: absolute;
 		left: 0;
@@ -135,7 +115,6 @@
 		padding: 0;
 		border: none;
 	}
-
 	&__btn-next {
 		position: absolute;
 		right: 0;
@@ -146,37 +125,30 @@
 		padding: 0;
 		border: none;
 	}
-
 	&__btn-prev-with-spacing {
 		left: 3px;
 	}
-
 	&__btn-next-with-spacing {
 		right: 3px;
 	}
-
 	&__btn--with-img {
 		background-image: none;
 		text-indent: 0;
 	}
-
 	.cmp-content-panel_list__items {
 		display: flex;
 		flex-wrap: nowrap;
 		margin: 0;
 		padding: 0;
-
 		.cmp-content-panel_list__item {
 			list-style-type: none;
 			margin-right: 10.5px;
 			padding: 2px;
-
 			.cmp-content_panel {
 				width: 282px;
 				height: auto;
 				overflow: visible;
 			}
-
 			.cmp-content_panel {
 				&__info {
 					padding: 15px;
@@ -185,28 +157,22 @@
 			}
 		}
 	}
-
 	@media (max-width: 767px) {
 		&__frame {
 			width: 100%;
 		}
-
 		.cmp-content-panel_list__items .cmp-content-panel_list__item {
 			margin-right: 2vw;
 			padding: 0;
 		}
-
 		.cmp-content_panel {
 			width: calc((198 / 375) * 100vw) !important;
-
 			a {
 				display: inline;
 			}
-
 			&__info {
 				padding: 10px !important;
 				padding-top: 12px !important;
-
 				.cmp-content_panel__title {
 					line-height: 1.2 !important;
 				}
@@ -214,37 +180,29 @@
 		}
 	}
 }
-
 .cmp-content-panel-list--list {
-
 	.cmp-content-panel_list {
 		&__items {
 			flex-wrap: wrap;
 		}
-
 		@media (max-width: 767px) {
 			&__item {
 				margin-right: 0 !important;
 				margin-bottom: 20px;
 				width: 100%;
-
 				.cmp-content_panel {
 					margin: 0 auto !important;
 					width: calc(100vw - 32px) !important;
-
 					a {
 						display: inline !important;
 					}
-
 					.cmp-content_panel__info {
 						padding-top: 20px;
-
 						.cmp-content_panel__title {
 							text-align: left;
 							font-size: 14px;
 							padding-right: (35 / 375) * 100vw;
 						}
-
 						.cmp-content_panel__desc {
 							text-align: left;
 							font-size: 12px;
@@ -255,15 +213,12 @@
 					}
 				}
 			}
-
 			&__items {
 				flex-wrap: wrap;
 			}
-
 			&__btn {
 				display: none;
 			}
-
 			.cmp-content_panel {
 				a {
 					display: block;

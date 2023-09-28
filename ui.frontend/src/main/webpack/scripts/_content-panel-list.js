@@ -3,6 +3,7 @@ import SimpleBar from 'simplebar';
 import $ from "jquery"
 
 window.addEventListener('DOMContentLoaded', () => {
+	
   Array.prototype.forEach.call(document.getElementsByClassName('cmp-content-panel_list__wrapper'), target => {
     var componentType = 'cmp-content-panel_list';
     var simpleBarContentEl;
@@ -13,6 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
       })
       simpleBarContentEl = simpleBar.getScrollElement();
     }
+    
     new _panelListSlide(target, componentType, simpleBarContentEl);
   });
 }, false);

@@ -25,19 +25,15 @@ public class ProductPanelItem {
 	private Map<String, String> productImgInfo;	
 	private String productPagePath;
 	
-	public ProductPanelItem(SlingHttpServletRequest request, ResourceResolver resourceResolver, Resource cfResource,
-			Page currentPage, String productCfpath) {
+	public ProductPanelItem(SlingHttpServletRequest request, ResourceResolver resourceResolver, Resource cfResource, Page currentPage, String productCfpath) {
 		
-		if (cfResource != null) {
-			
+		if (cfResource != null) {			
 			this.price = StringUtils.EMPTY;
 			this.brandName = StringUtils.EMPTY;
 			this.onlineOnlyImagePath = StringUtils.EMPTY;
-			
 			TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
 			ValueMap cfValueMap = cfResource.getValueMap();
-			this.productName = CommonUlti.getDispalayName(cfValueMap);
-			
+			this.productName = CommonUlti.getDispalayName(cfValueMap);			
 			PriceInfoItem priceInfo = CommonUlti.getPriceInfo(request, currentPage, cfValueMap.get("listPrice", StringUtils.EMPTY));
 			this.price = priceInfo.getPrice();
 			this.priceLabel = priceInfo.getPriceLabel();
@@ -55,13 +51,10 @@ public class ProductPanelItem {
 			productImgInfo = new LinkedHashMap<>();
 			CommonUlti.prepareProductAssetInfo(cfValueMap, productImgInfo, request, false,".transform/product-panel/image.");
 			this.productImgInfo.put("productName", cfValueMap.get("productName", String.class));
-			this.productPagePath  = CommonUlti.getproductPagepath(currentPage, cfValueMap, tagManager);
-			
+			this.productPagePath  = CommonUlti.getproductPagepath(currentPage, cfValueMap, tagManager);			
 		}
 	}
 	
-	
-
 	public String getBrandName() {
 		return brandName;
 	}

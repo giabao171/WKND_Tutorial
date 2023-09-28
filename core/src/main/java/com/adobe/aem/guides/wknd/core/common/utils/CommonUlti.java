@@ -95,7 +95,7 @@ public class CommonUlti {
 					}
 				}
 				
-				//create new content panel in contnent panel list
+				//create new content panel in content panel list
 				try {
 					if(WCMMode.EDIT.equals(WCMMode.fromRequest(request))) {
 						while(i < contentPanelNumber) {

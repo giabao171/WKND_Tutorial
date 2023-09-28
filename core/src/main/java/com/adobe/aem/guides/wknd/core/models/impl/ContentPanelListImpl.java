@@ -51,5 +51,4 @@ public class ContentPanelListImpl implements ContentPanelList{
 	public List<String> getListContentPanel() {
 		return contentPanelList;
 	}
-
 }
